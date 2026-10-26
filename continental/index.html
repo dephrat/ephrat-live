@@ -6,50 +6,50 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Continental Entertainment · redesign concept</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0B0B0C;--panel:#17171A;--line:#2A2A2E;--line2:#34343A;--ink:#F5F2EC;--soft:#D6D0C6;--mute:#A39E95;--gold:#E8B84A;--cream:#F5F2EC;--brown:#7A5A12}
+:root{--bg:#060A1C;--panel:#0D1433;--line:#1B2550;--line2:#2A366B;--ink:#F2F5FF;--soft:#C3CDF2;--mute:#8E9AC8;--gold:#6F8BFF;--cobalt:#2F4BE0;--cream:#EEF2FF;--brown:#2440C8}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Archivo',system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Schibsted Grotesk',system-ui,sans-serif}
 a{color:var(--gold)}
 img{display:block;max-width:100%}
 button,select,input{font:inherit}
 .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
 .kicker{margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-.display{margin:0;font-weight:800;font-stretch:75%;line-height:.95;text-transform:uppercase;font-size:clamp(44px,5.5vw,80px)}
-.serif{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;text-transform:none;font-stretch:100%}
+.display{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.03em;font-size:clamp(32px,4.2vw,58px)}
+.serif{color:var(--gold)}
 .gold{color:var(--gold)}
 .pill{min-height:44px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--line2)}
 .pill[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;text-decoration:none}
 .btn-light{background:var(--ink);color:var(--bg)}
-.btn-gold{background:var(--gold);color:var(--bg)}
-.btn-ghost{color:var(--ink);border:1px solid rgba(245,242,236,.4);font-weight:600}
+.btn-gold{background:var(--cobalt);color:#fff}
+.btn-ghost{color:var(--ink);border:1px solid rgba(242,245,255,.4);font-weight:600}
 .row-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:40px}
 
 /* concept banner */
-.concept{background:var(--gold);color:var(--bg);font-size:14px;font-weight:600;text-align:center;padding:10px 16px}
-.concept a{color:var(--bg)}
+.concept{background:var(--cobalt);color:#fff;font-size:14px;font-weight:600;text-align:center;padding:10px 16px}
+.concept a{color:#fff}
 
 /* hero */
 .hero{position:relative;overflow:hidden;min-height:760px;display:flex;flex-direction:column}
 .hero>.wrap{width:100%}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
-.hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,#0B0B0C 0%,rgba(11,11,12,.92) 30%,rgba(11,11,12,.35) 62%,rgba(11,11,12,.1) 100%)}
-.hero .fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(180deg,rgba(11,11,12,0),#0B0B0C)}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,#060A1C 0%,rgba(6,10,28,.92) 30%,rgba(6,10,28,.35) 62%,rgba(6,10,28,.1) 100%)}
+.hero .fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(180deg,rgba(6,10,28,0),#060A1C)}
 header{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
 .logo{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;line-height:1}
-.logo b{font-weight:800;font-stretch:112%;font-size:21px;letter-spacing:3px}
-.logo small{font-size:11px;font-weight:500;letter-spacing:5.5px;color:#C9C3B8;margin-top:5px}
+.logo{flex-direction:row !important;align-items:center;gap:12px}.logo svg{flex:0 0 auto;color:var(--gold)}.logo .lt{display:flex;flex-direction:column;line-height:1}.logo b{font-family:'Unbounded',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.01em}
+.logo small{font-size:11px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--mute);margin-top:5px}
 nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 30px;font-size:15px;font-weight:500}
 nav a{color:var(--ink);text-decoration:none}
 nav .btn{min-height:44px;padding:0 20px}
 .hero-body{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:72px;padding-bottom:180px}
-.hero h1{margin:0 0 28px;max-width:760px;font-weight:800;font-stretch:75%;font-size:clamp(50px,8.6vw,124px);line-height:.9;letter-spacing:-1px;text-transform:uppercase}
+.hero h1{margin:0 0 28px;max-width:760px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(38px,6.2vw,88px);line-height:.98;letter-spacing:-.035em}
 .hero p.lede{margin:0 0 36px;max-width:520px;font-size:19px;color:var(--soft)}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.caption{position:absolute;z-index:1;right:28px;bottom:150px;margin:0;font-size:12px;letter-spacing:1.5px;color:#C9C3B8;text-transform:uppercase}
+.caption{position:absolute;z-index:1;right:28px;bottom:150px;margin:0;font-size:12px;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase}
 
 /* check a date */
 .check{position:relative;z-index:3;margin-top:-110px}
@@ -57,13 +57,13 @@ nav .btn{min-height:44px;padding:0 20px}
 .check .head{flex:1 1 100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;margin-bottom:4px}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)}
-.field select,.field input{min-height:50px;border:1px solid var(--line2);border-radius:12px;background:#0F0F11;color:var(--ink);padding:0 14px;font-size:16px;color-scheme:dark;min-width:0}
-.check button{flex:1 1 180px;min-height:50px;border:0;border-radius:12px;background:var(--gold);color:var(--bg);font-weight:700;cursor:pointer}
+.field select,.field input{min-height:50px;border:1px solid var(--line2);border-radius:12px;background:#08102A;color:var(--ink);padding:0 14px;font-size:16px;color-scheme:dark;min-width:0}
+.check button{flex:1 1 180px;min-height:50px;border:0;border-radius:12px;background:var(--cobalt);color:#fff;font-weight:700;cursor:pointer}
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px;padding-top:64px}
 .stats div{border-top:1px solid var(--line);padding-top:18px}
-.stats b{display:block;font-weight:800;font-stretch:75%;font-size:clamp(40px,4.4vw,60px);line-height:1}
+.stats b{display:block;font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-.03em;font-size:clamp(32px,3.6vw,48px);line-height:1}
 .stats span{display:block;margin-top:8px;font-size:15px;color:var(--mute)}
 
 /* roster */
@@ -83,8 +83,8 @@ section.block{padding-top:120px;padding-bottom:100px}
 .video{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:12px}
 .video .img{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--panel)}
 .video .img img{width:100%;height:100%;object-fit:cover}
-.video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,11,12,.25)}
-.video .play span{width:64px;height:64px;border-radius:50%;background:rgba(245,242,236,.95);display:flex;align-items:center;justify-content:center}
+.video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(6,10,28,.25)}
+.video .play span{width:64px;height:64px;border-radius:50%;background:rgba(242,245,255,.95);display:flex;align-items:center;justify-content:center}
 .video b{font-size:18px}.video small{display:block;font-size:14px;color:var(--mute)}
 
 /* feature */
@@ -92,33 +92,33 @@ section.block{padding-top:120px;padding-bottom:100px}
 .feature .pic{flex:999 1 560px;min-width:0;min-height:380px;position:relative}
 .feature .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .feature .txt{flex:1 1 360px;min-width:0;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;gap:18px}
-.feature h2{margin:0;font-weight:800;font-stretch:75%;font-size:clamp(36px,4vw,54px);line-height:.98;text-transform:uppercase}
+.feature h2{margin:0;font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-.03em;font-size:clamp(28px,3vw,40px);line-height:1.05}
 
 /* howie + reviews */
 .split{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
 .split .l{flex:1 1 360px;min-width:0}.split .r{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
 .rating{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
-.rating b{font-weight:800;font-stretch:75%;font-size:48px;line-height:1}
+.rating b{font-family:'Unbounded',sans-serif;font-weight:700;font-size:40px;line-height:1}
 .review{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
-.review blockquote{margin:0 0 18px;font-family:'Instrument Serif',serif;font-size:28px;line-height:1.25}
+.review blockquote{margin:0 0 18px;font-size:22px;font-weight:500;line-height:1.4}
 .review figcaption{font-size:14px;color:var(--mute)}.review figcaption b{color:var(--ink);font-weight:600}
 .concept-note{border:1px dashed var(--line2);border-radius:14px;padding:16px 18px;color:var(--mute);font-size:15px;max-width:420px}
 
 /* planner */
-.planner{background:var(--cream);color:var(--bg)}
+.planner{position:relative;overflow:hidden;background:var(--cream);color:var(--bg)}.planner>.wrap{position:relative}.bigglobe{position:absolute;right:-260px;top:-300px;width:640px;height:640px;color:var(--cobalt);opacity:.2;pointer-events:none}.planner .serif{color:var(--cobalt)}
 .planner .kicker{color:var(--brown)}
-.planner .pill{border-color:#B9B1A3;color:var(--bg);min-height:48px;font-size:16px}
+.planner .pill{border-color:#A6B3E3;color:var(--bg);min-height:48px;font-size:16px}
 .planner .pill[aria-pressed="true"]{background:var(--bg);color:var(--cream);border-color:var(--bg)}
 .plan{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;margin-top:40px}
 .plan .l{flex:1 1 300px;min-width:0}
-.plan .headline{margin:0 0 12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1.05}
-.plan .note{margin:0 0 28px;color:#4D4840;font-size:18px}
-.plan ol{flex:999 1 560px;min-width:0;list-style:none;margin:0;padding:0;border-top:1px solid #D8D1C4}
-.plan li{display:flex;flex-wrap:wrap;gap:6px 28px;padding:26px 0;border-bottom:1px solid #D8D1C4;align-items:baseline}
+.plan .headline{margin:0 0 12px;font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em;font-size:30px;line-height:1.15}
+.plan .note{margin:0 0 28px;color:#39446E;font-size:18px}
+.plan ol{flex:999 1 560px;min-width:0;list-style:none;margin:0;padding:0;border-top:1px solid #CCD5F5}
+.plan li{display:flex;flex-wrap:wrap;gap:6px 28px;padding:26px 0;border-bottom:1px solid #CCD5F5;align-items:baseline}
 .plan .when{flex:0 0 170px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brown)}
 .plan .what{flex:1 1 280px;min-width:0}
-.plan .what b{display:block;font-weight:800;font-stretch:80%;font-size:28px;line-height:1.1;text-transform:uppercase}
-.plan .what span{display:block;color:#4D4840;margin-top:4px}
+.plan .what b{display:block;font-family:'Unbounded',sans-serif;font-weight:600;letter-spacing:-.02em;font-size:22px;line-height:1.2}
+.plan .what span{display:block;color:#39446E;margin-top:4px}
 .btn-dark{background:var(--bg);color:var(--cream)}
 
 /* categories, steps, faq */
@@ -128,26 +128,26 @@ section.block{padding-top:120px;padding-bottom:100px}
 .arrow{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--gold)}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
 .steps li{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
-.steps .n{font-family:'Instrument Serif',serif;font-style:italic;font-size:56px;line-height:1;color:var(--gold)}
+.steps .n{font-family:'Unbounded',sans-serif;font-weight:700;font-size:40px;line-height:1;color:var(--gold)}
 .steps h3{margin:26px 0 6px;font-size:20px}.steps p{margin:0;color:var(--mute);font-size:16px}
 .faq{border-top:1px solid var(--line)}
 .faq button{width:100%;min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:transparent;border:0;color:var(--ink);font-size:20px;font-weight:600;text-align:left;cursor:pointer;padding:18px 0}
 .faq .sign{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px}
 .faq .item{border-bottom:1px solid var(--line)}
-.faq p{margin:0;padding:0 56px 26px 0;color:#C9C3B8}
+.faq p{margin:0;padding:0 56px 26px 0;color:var(--soft)}
 
 /* closing */
 .closing{position:relative;overflow:hidden}
 .closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.closing .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,.7) 55%,rgba(11,11,12,.45) 100%)}
+.closing .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,28,.92) 0%,rgba(6,10,28,.7) 55%,rgba(6,10,28,.45) 100%)}
 .closing .wrap{position:relative;padding-top:130px;padding-bottom:110px;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
-.closing h2{margin:0;font-weight:800;font-stretch:75%;font-size:clamp(52px,8vw,120px);line-height:.9;text-transform:uppercase}
+.closing h2{margin:0;font-family:'Unbounded',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(40px,6.4vw,92px);line-height:1}
 footer{border-top:1px solid var(--line)}
 footer .wrap{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;font-size:14px;color:var(--mute)}
-footer a{color:#C9C3B8}
+footer a{color:var(--soft)}
 
 @media (max-width:760px){
-  .hero .scrim{background:linear-gradient(180deg,rgba(11,11,12,.55) 0%,rgba(11,11,12,.88) 55%,#0B0B0C 100%)}
+  .hero .scrim{background:linear-gradient(180deg,rgba(6,10,28,.55) 0%,rgba(6,10,28,.88) 55%,#060A1C 100%)}
   .caption{display:none}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .acts{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}
@@ -169,7 +169,7 @@ footer a{color:#C9C3B8}
   <div class="scrim" aria-hidden="true"></div>
   <div class="fade" aria-hidden="true"></div>
   <header class="wrap">
-    <a class="logo" href="#top"><b>CONTINENTAL</b><small>ENTERTAINMENT</small></a>
+    <a class="logo" href="#top"><svg width="34" height="34" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="20" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="10" y1="28" x2="90" y2="28"/><line x1="10" y1="72" x2="90" y2="72"/></svg><span class="lt"><b>Continental</b><small>Entertainment</small></span></a>
     <nav aria-label="Main">
       <a href="#roster">Roster</a>
       <a href="#plan">Plan an event</a>
@@ -180,7 +180,7 @@ footer a{color:#C9C3B8}
   </header>
   <div class="wrap hero-body">
     <p class="kicker">Full-service talent agency · Canada &amp; international</p>
-    <h1>Book the act<br>they'll talk<br><span class="serif gold">about for years.</span></h1>
+    <h1>Book the act<br>they'll talk about<br><span class="serif">for years.</span></h1>
     <p class="lede">Tribute bands, cover bands, DJs, magicians and more, for corporate events, weddings, festivals, private parties and venues.</p>
     <div class="ctas">
       <a class="btn btn-light" href="#roster">See the roster</a>
@@ -227,9 +227,9 @@ footer a{color:#C9C3B8}
     <a href="https://www.youtube.com/@ContinentalEntertainment" style="color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px">All 250+ videos on YouTube →</a>
   </div>
   <div class="videos">
-    <a class="video" href="https://www.youtube.com/watch?v=FHIEMhmUSgY"><span class="img"><img src="https://img.youtube.com/vi/FHIEMhmUSgY/maxresdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Draw the Line</b><small>Tribute to Aerosmith · 18K views</small></span></a>
-    <a class="video" href="https://www.youtube.com/watch?v=q9ur-kv6r6E"><span class="img"><img src="https://img.youtube.com/vi/q9ur-kv6r6E/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>ABBA Revisited</b><small>Tribute to ABBA · 6K views</small></span></a>
-    <a class="video" href="https://www.youtube.com/watch?v=OszVrfHGGIk"><span class="img"><img src="https://img.youtube.com/vi/OszVrfHGGIk/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Shania Twin</b><small>Tribute to Shania Twain</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=FHIEMhmUSgY"><span class="img"><img src="https://img.youtube.com/vi/FHIEMhmUSgY/maxresdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Draw the Line</b><small>Tribute to Aerosmith · 18K views</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=q9ur-kv6r6E"><span class="img"><img src="https://img.youtube.com/vi/q9ur-kv6r6E/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>ABBA Revisited</b><small>Tribute to ABBA · 6K views</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=OszVrfHGGIk"><span class="img"><img src="https://img.youtube.com/vi/OszVrfHGGIk/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Shania Twin</b><small>Tribute to Shania Twain</small></span></a>
   </div>
 </section>
 
@@ -239,7 +239,7 @@ footer a{color:#C9C3B8}
     <div class="txt">
       <p class="kicker" style="margin:0">Wednesday's Engine at the CNE</p>
       <h2>Backyards to <span class="serif">main stages.</span></h2>
-      <p style="margin:0;color:#C9C3B8">Canadian and international performers plus in-house productions, matched to your audience, theme and venue.</p>
+      <p style="margin:0;color:var(--soft)">Canadian and international performers plus in-house productions, matched to your audience, theme and venue.</p>
       <a href="#check" style="align-self:flex-start;color:var(--ink);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:4px">Check a date →</a>
     </div>
   </div>
@@ -249,7 +249,7 @@ footer a{color:#C9C3B8}
   <div class="l">
     <p class="kicker">Your booker</p>
     <h2 class="display" style="margin-bottom:20px">Ask for <span class="serif gold">Howie.</span></h2>
-    <p style="margin:0 0 24px;color:#C9C3B8;max-width:420px">Howie Turner owns Continental. Tell him the date, the room and the crowd, and he'll come back with acts that fit.</p>
+    <p style="margin:0 0 24px;color:var(--soft);max-width:420px">Howie Turner owns Continental. Tell him the date, the room and the crowd, and he'll come back with acts that fit.</p>
     <p class="concept-note">In the live site, Howie's email and phone go here. They're left out of this concept so nobody contacts the agency through a page it didn't make.</p>
   </div>
   <div class="r">
@@ -260,7 +260,7 @@ footer a{color:#C9C3B8}
   </div>
 </section>
 
-<section class="planner" id="plan">
+<section class="planner" id="plan"><svg class="bigglobe" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".35" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="10" ry="46"/><ellipse cx="50" cy="50" rx="24" ry="46"/><ellipse cx="50" cy="50" rx="36" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="9.6" y1="28" x2="90.4" y2="28"/><line x1="9.6" y1="72" x2="90.4" y2="72"/><line x1="24" y1="12" x2="76" y2="12"/><line x1="24" y1="88" x2="76" y2="88"/></svg>
   <div class="wrap" style="padding-top:120px;padding-bottom:120px">
     <p class="kicker">First time booking? Start here</p>
     <h2 class="display" style="margin-bottom:40px">What are you <span class="serif">planning?</span></h2>
@@ -317,7 +317,7 @@ footer a{color:#C9C3B8}
 
 <footer>
   <div class="wrap">
-    <span class="logo"><b style="font-size:16px">CONTINENTAL</b><small style="font-size:10px">ENTERTAINMENT</small></span>
+    <span class="logo"><svg width="28" height="28" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="20" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="10" y1="28" x2="90" y2="28"/><line x1="10" y1="72" x2="90" y2="72"/></svg><span class="lt"><b style="font-size:16px">Continental</b><small style="font-size:10px">Entertainment</small></span></span>
     <span style="display:flex;flex-wrap:wrap;gap:8px 24px">
       <a href="https://continentalentertainment.ca/">Current website</a>
       <a href="https://continentalentertainment.ca/the-star/">Toronto Star feature</a>
