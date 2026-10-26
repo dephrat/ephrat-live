@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Continental Entertainment · redesign concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0C;--panel:#17171A;--line:#2A2A2E;--line2:#34343A;--ink:#F5F2EC;--soft:#D6D0C6;--mute:#A39E95;--gold:#E8B84A;--cream:#F5F2EC;--brown:#7A5A12}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Archivo',system-ui,sans-serif}
+a{color:var(--gold)}
+img{display:block;max-width:100%}
+button,select,input{font:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+.kicker{margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.display{margin:0;font-weight:800;font-stretch:75%;line-height:.95;text-transform:uppercase;font-size:clamp(44px,5.5vw,80px)}
+.serif{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;text-transform:none;font-stretch:100%}
+.gold{color:var(--gold)}
+.pill{min-height:44px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--line2)}
+.pill[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;text-decoration:none}
+.btn-light{background:var(--ink);color:var(--bg)}
+.btn-gold{background:var(--gold);color:var(--bg)}
+.btn-ghost{color:var(--ink);border:1px solid rgba(245,242,236,.4);font-weight:600}
+.row-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:40px}
+
+/* concept banner */
+.concept{background:var(--gold);color:var(--bg);font-size:14px;font-weight:600;text-align:center;padding:10px 16px}
+.concept a{color:var(--bg)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:760px;display:flex;flex-direction:column}
+.hero>.wrap{width:100%}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,#0B0B0C 0%,rgba(11,11,12,.92) 30%,rgba(11,11,12,.35) 62%,rgba(11,11,12,.1) 100%)}
+.hero .fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(180deg,rgba(11,11,12,0),#0B0B0C)}
+header{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
+.logo{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;line-height:1}
+.logo b{font-weight:800;font-stretch:112%;font-size:21px;letter-spacing:3px}
+.logo small{font-size:11px;font-weight:500;letter-spacing:5.5px;color:#C9C3B8;margin-top:5px}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 30px;font-size:15px;font-weight:500}
+nav a{color:var(--ink);text-decoration:none}
+nav .btn{min-height:44px;padding:0 20px}
+.hero-body{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:72px;padding-bottom:180px}
+.hero h1{margin:0 0 28px;max-width:760px;font-weight:800;font-stretch:75%;font-size:clamp(50px,8.6vw,124px);line-height:.9;letter-spacing:-1px;text-transform:uppercase}
+.hero p.lede{margin:0 0 36px;max-width:520px;font-size:19px;color:var(--soft)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.caption{position:absolute;z-index:1;right:28px;bottom:150px;margin:0;font-size:12px;letter-spacing:1.5px;color:#C9C3B8;text-transform:uppercase}
+
+/* check a date */
+.check{position:relative;z-index:3;margin-top:-110px}
+.check form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8);display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.check .head{flex:1 1 100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;margin-bottom:4px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)}
+.field select,.field input{min-height:50px;border:1px solid var(--line2);border-radius:12px;background:#0F0F11;color:var(--ink);padding:0 14px;font-size:16px;color-scheme:dark;min-width:0}
+.check button{flex:1 1 180px;min-height:50px;border:0;border-radius:12px;background:var(--gold);color:var(--bg);font-weight:700;cursor:pointer}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px;padding-top:64px}
+.stats div{border-top:1px solid var(--line);padding-top:18px}
+.stats b{display:block;font-weight:800;font-stretch:75%;font-size:clamp(40px,4.4vw,60px);line-height:1}
+.stats span{display:block;margin-top:8px;font-size:15px;color:var(--mute)}
+
+/* roster */
+section.block{padding-top:120px;padding-bottom:100px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:36px 20px}
+.act{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:14px}
+.act .img{aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:var(--panel)}
+.act .img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.act:hover .img img{transform:scale(1.04)}
+.act .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.act .meta b{display:block;font-size:19px;line-height:1.25}
+.act .meta span{display:block;font-size:15px;color:var(--mute)}
+
+/* videos */
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.video{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:12px}
+.video .img{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--panel)}
+.video .img img{width:100%;height:100%;object-fit:cover}
+.video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,11,12,.25)}
+.video .play span{width:64px;height:64px;border-radius:50%;background:rgba(245,242,236,.95);display:flex;align-items:center;justify-content:center}
+.video b{font-size:18px}.video small{display:block;font-size:14px;color:var(--mute)}
+
+/* feature */
+.feature{display:flex;flex-wrap:wrap;border-radius:24px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.feature .pic{flex:999 1 560px;min-width:0;min-height:380px;position:relative}
+.feature .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature .txt{flex:1 1 360px;min-width:0;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.feature h2{margin:0;font-weight:800;font-stretch:75%;font-size:clamp(36px,4vw,54px);line-height:.98;text-transform:uppercase}
+
+/* howie + reviews */
+.split{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.split .l{flex:1 1 360px;min-width:0}.split .r{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.rating{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.rating b{font-weight:800;font-stretch:75%;font-size:48px;line-height:1}
+.review{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
+.review blockquote{margin:0 0 18px;font-family:'Instrument Serif',serif;font-size:28px;line-height:1.25}
+.review figcaption{font-size:14px;color:var(--mute)}.review figcaption b{color:var(--ink);font-weight:600}
+.concept-note{border:1px dashed var(--line2);border-radius:14px;padding:16px 18px;color:var(--mute);font-size:15px;max-width:420px}
+
+/* planner */
+.planner{background:var(--cream);color:var(--bg)}
+.planner .kicker{color:var(--brown)}
+.planner .pill{border-color:#B9B1A3;color:var(--bg);min-height:48px;font-size:16px}
+.planner .pill[aria-pressed="true"]{background:var(--bg);color:var(--cream);border-color:var(--bg)}
+.plan{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;margin-top:40px}
+.plan .l{flex:1 1 300px;min-width:0}
+.plan .headline{margin:0 0 12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1.05}
+.plan .note{margin:0 0 28px;color:#4D4840;font-size:18px}
+.plan ol{flex:999 1 560px;min-width:0;list-style:none;margin:0;padding:0;border-top:1px solid #D8D1C4}
+.plan li{display:flex;flex-wrap:wrap;gap:6px 28px;padding:26px 0;border-bottom:1px solid #D8D1C4;align-items:baseline}
+.plan .when{flex:0 0 170px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brown)}
+.plan .what{flex:1 1 280px;min-width:0}
+.plan .what b{display:block;font-weight:800;font-stretch:80%;font-size:28px;line-height:1.1;text-transform:uppercase}
+.plan .what span{display:block;color:#4D4840;margin-top:4px}
+.btn-dark{background:var(--bg);color:var(--cream)}
+
+/* categories, steps, faq */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border-top:1px solid var(--line)}
+.cats a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.cats b{display:block;font-size:20px}.cats span{display:block;font-size:15px;color:var(--mute)}
+.arrow{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.steps li{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
+.steps .n{font-family:'Instrument Serif',serif;font-style:italic;font-size:56px;line-height:1;color:var(--gold)}
+.steps h3{margin:26px 0 6px;font-size:20px}.steps p{margin:0;color:var(--mute);font-size:16px}
+.faq{border-top:1px solid var(--line)}
+.faq button{width:100%;min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:transparent;border:0;color:var(--ink);font-size:20px;font-weight:600;text-align:left;cursor:pointer;padding:18px 0}
+.faq .sign{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px}
+.faq .item{border-bottom:1px solid var(--line)}
+.faq p{margin:0;padding:0 56px 26px 0;color:#C9C3B8}
+
+/* closing */
+.closing{position:relative;overflow:hidden}
+.closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.closing .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,.7) 55%,rgba(11,11,12,.45) 100%)}
+.closing .wrap{position:relative;padding-top:130px;padding-bottom:110px;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.closing h2{margin:0;font-weight:800;font-stretch:75%;font-size:clamp(52px,8vw,120px);line-height:.9;text-transform:uppercase}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;font-size:14px;color:var(--mute)}
+footer a{color:#C9C3B8}
+
+@media (max-width:760px){
+  .hero .scrim{background:linear-gradient(180deg,rgba(11,11,12,.55) 0%,rgba(11,11,12,.88) 55%,#0B0B0C 100%)}
+  .caption{display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .acts{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}
+  .act .img{aspect-ratio:1/1}
+  .act .meta b{font-size:16px}.act .meta span{font-size:13px}
+  .filters,.tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+  .filters .pill,.tabs .pill{flex:0 0 auto;white-space:nowrap}
+  .feature .txt{padding:32px 24px}
+  .faq p{padding-right:0}
+}
+</style>
+</head>
+<body>
+
+<div class="concept">Redesign concept by <a href="https://ephrat.ai">ephrat.ai</a>. Not affiliated with Continental Entertainment. Photos and act details are theirs, shown for illustration only.</div>
+
+<section class="hero" id="top">
+  <img src="https://continentalentertainment.ca/wp-content/uploads/2026/08/draw-the-linbe-aerosmith-tribute.webp" alt="Draw the Line, a tribute to Aerosmith, performing on stage">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="fade" aria-hidden="true"></div>
+  <header class="wrap">
+    <a class="logo" href="#top"><b>CONTINENTAL</b><small>ENTERTAINMENT</small></a>
+    <nav aria-label="Main">
+      <a href="#roster">Roster</a>
+      <a href="#plan">Plan an event</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-gold" href="#check">Book an act</a>
+    </nav>
+  </header>
+  <div class="wrap hero-body">
+    <p class="kicker">Full-service talent agency · Canada &amp; international</p>
+    <h1>Book the act<br>they'll talk<br><span class="serif gold">about for years.</span></h1>
+    <p class="lede">Tribute bands, cover bands, DJs, magicians and more, for corporate events, weddings, festivals, private parties and venues.</p>
+    <div class="ctas">
+      <a class="btn btn-light" href="#roster">See the roster</a>
+      <a class="btn btn-ghost" href="#check">Check a date</a>
+    </div>
+  </div>
+  <p class="caption">On stage: Draw the Line · Aerosmith tribute</p>
+</section>
+
+<div class="wrap check">
+  <form id="check" aria-label="Check a date" onsubmit="event.preventDefault();document.getElementById('check-msg').hidden=false">
+    <div class="head"><strong style="font-size:19px">Check a date</strong><span style="font-size:14px;color:var(--mute)">We reply with acts that fit your budget.</span></div>
+    <div class="field" style="flex:1 1 200px"><label for="ce-type">Event</label>
+      <select id="ce-type"><option>Corporate event</option><option>Wedding</option><option>Festival</option><option>Private party</option><option>Venue booking</option></select></div>
+    <div class="field" style="flex:1 1 170px"><label for="ce-date">Date</label><input id="ce-date" type="date"></div>
+    <div class="field" style="flex:1 1 200px"><label for="ce-city">City or venue</label><input id="ce-city" type="text" placeholder="Niagara Falls"></div>
+    <div class="field" style="flex:1 1 120px"><label for="ce-guests">Guests</label><input id="ce-guests" type="number" placeholder="150"></div>
+    <button type="submit">Find my act</button>
+    <p id="check-msg" hidden style="flex:1 1 100%;margin:4px 0 0;font-size:14px;color:var(--gold)">This is a design concept, so the form doesn't send anything.</p>
+  </form>
+</div>
+
+<div class="wrap stats">
+  <div><b>148</b><span>tribute acts on the roster</span></div>
+  <div><b>60+</b><span>party and cover bands</span></div>
+  <div><b>5.0 ★</b><span>Google rating</span></div>
+  <div><b>AFM</b><span>signatory booking agency</span></div>
+</div>
+
+<section class="wrap block" id="roster">
+  <div class="row-head">
+    <div style="max-width:620px">
+      <p class="kicker">On the roster</p>
+      <h2 class="display">Real acts.<br><span class="serif" style="color:var(--soft)">Ready for your stage.</span></h2>
+    </div>
+    <div class="filters" role="group" aria-label="Filter acts"></div>
+  </div>
+  <div class="acts"></div>
+</section>
+
+<section class="wrap" style="padding-bottom:110px">
+  <div class="row-head" style="margin-bottom:28px">
+    <h2 class="display" style="font-size:clamp(36px,4vw,56px)">Watch them <span class="serif gold">live.</span></h2>
+    <a href="https://www.youtube.com/@ContinentalEntertainment" style="color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px">All 250+ videos on YouTube →</a>
+  </div>
+  <div class="videos">
+    <a class="video" href="https://www.youtube.com/watch?v=FHIEMhmUSgY"><span class="img"><img src="https://img.youtube.com/vi/FHIEMhmUSgY/maxresdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Draw the Line</b><small>Tribute to Aerosmith · 18K views</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=q9ur-kv6r6E"><span class="img"><img src="https://img.youtube.com/vi/q9ur-kv6r6E/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>ABBA Revisited</b><small>Tribute to ABBA · 6K views</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=OszVrfHGGIk"><span class="img"><img src="https://img.youtube.com/vi/OszVrfHGGIk/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Shania Twin</b><small>Tribute to Shania Twain</small></span></a>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:120px">
+  <div class="feature">
+    <div class="pic"><img src="https://continentalentertainment.ca/wp-content/uploads/2025/11/wednesdays-engine-on-stage-at-the-cne.webp" alt="Wednesday's Engine performing to a festival crowd at the CNE" loading="lazy"></div>
+    <div class="txt">
+      <p class="kicker" style="margin:0">Wednesday's Engine at the CNE</p>
+      <h2>Backyards to <span class="serif">main stages.</span></h2>
+      <p style="margin:0;color:#C9C3B8">Canadian and international performers plus in-house productions, matched to your audience, theme and venue.</p>
+      <a href="#check" style="align-self:flex-start;color:var(--ink);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:4px">Check a date →</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap split" style="padding-bottom:120px">
+  <div class="l">
+    <p class="kicker">Your booker</p>
+    <h2 class="display" style="margin-bottom:20px">Ask for <span class="serif gold">Howie.</span></h2>
+    <p style="margin:0 0 24px;color:#C9C3B8;max-width:420px">Howie Turner owns Continental. Tell him the date, the room and the crowd, and he'll come back with acts that fit.</p>
+    <p class="concept-note">In the live site, Howie's email and phone go here. They're left out of this concept so nobody contacts the agency through a page it didn't make.</p>
+  </div>
+  <div class="r">
+    <div class="rating"><b>5.0</b><span class="gold" aria-label="5 out of 5 stars" style="font-size:22px;letter-spacing:3px">★★★★★</span><span style="color:var(--mute);font-size:15px">on Google</span></div>
+    <figure class="review"><blockquote>“Highly recommended for entertainment needs. Howie is the best - extremely prompt and personable.”</blockquote><figcaption><b>Haley</b> · via Google</figcaption></figure>
+    <figure class="review"><blockquote>“Fast, courteous, and personable! Go to Continental for all your entertainment needs, Ask for Howie, and tell him Slim sent ya!”</blockquote><figcaption><b>South River Slim</b> · via Google</figcaption></figure>
+    <p style="margin:4px 0 0;font-size:15px;color:var(--mute)">On the roster: <span style="color:var(--ink)">“Even better than the real thing”</span>, The Vancouver Province on Elevation, a tribute to U2.</p>
+  </div>
+</section>
+
+<section class="planner" id="plan">
+  <div class="wrap" style="padding-top:120px;padding-bottom:120px">
+    <p class="kicker">First time booking? Start here</p>
+    <h2 class="display" style="margin-bottom:40px">What are you <span class="serif">planning?</span></h2>
+    <div class="tabs filters" role="group" aria-label="Event type"></div>
+    <div class="plan">
+      <div class="l">
+        <p class="headline" id="ev-headline"></p>
+        <p class="note" id="ev-note"></p>
+        <a class="btn btn-dark" href="#check" id="ev-cta" style="min-height:0;padding:16px 26px;line-height:1.3"></a>
+      </div>
+      <ol id="ev-slots"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:120px;padding-bottom:40px">
+  <div class="row-head">
+    <h2 class="display">Nine kinds<br><span class="serif" style="color:var(--soft)">of talent.</span></h2>
+    <p style="margin:0;max-width:400px;color:var(--mute)">These are a few of the many acts available through the office. Ask about anything you don't see.</p>
+  </div>
+  <div class="cats" id="cats"></div>
+</section>
+
+<section class="wrap" id="how" style="padding-top:100px;padding-bottom:120px">
+  <p class="kicker">How it works</p>
+  <h2 class="display" style="margin-bottom:56px">From inquiry <span class="serif">to encore.</span></h2>
+  <ol class="steps">
+    <li><div class="n">01</div><h3>Tell us about your event</h3><p>Date, location, audience size and the vibe you want.</p></li>
+    <li><div class="n">02</div><h3>Get recommendations</h3><p>Options that fit your budget, event type and goals.</p></li>
+    <li><div class="n">03</div><h3>Review and choose</h3><p>Watch performance videos, read reviews, compare.</p></li>
+    <li><div class="n">04</div><h3>Book with confidence</h3><p>Contracts, scheduling and communication, handled.</p></li>
+  </ol>
+</section>
+
+<section id="faq" style="border-top:1px solid var(--line)">
+  <div class="wrap split" style="padding-top:120px;padding-bottom:120px;gap:56px">
+    <div class="l" style="flex-basis:320px">
+      <h2 class="display" style="margin-bottom:18px">Good<br><span class="serif">questions.</span></h2>
+      <p style="margin:0;color:var(--mute);max-width:340px">Never booked a band, magician or variety act before? It's easier than it looks.</p>
+    </div>
+    <div class="r faq" id="faq-list" style="gap:0"></div>
+  </div>
+</section>
+
+<section class="closing">
+  <img src="https://continentalentertainment.ca/wp-content/uploads/2026/07/draw-the-line-aerosmith-tribute-5.webp" alt="" loading="lazy">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker" style="margin:0">The best talent books fast, especially weekends</p>
+    <h2>Let's book <span class="serif gold">your night.</span></h2>
+    <div class="ctas" style="margin-top:8px"><a class="btn btn-gold" href="#check" style="min-height:56px">Check a date</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><b style="font-size:16px">CONTINENTAL</b><small style="font-size:10px">ENTERTAINMENT</small></span>
+    <span style="display:flex;flex-wrap:wrap;gap:8px 24px">
+      <a href="https://continentalentertainment.ca/">Current website</a>
+      <a href="https://continentalentertainment.ca/the-star/">Toronto Star feature</a>
+      <a href="https://www.youtube.com/@ContinentalEntertainment">YouTube</a>
+    </span>
+    <span>Concept by ephrat.ai · not affiliated</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var U = 'https://continentalentertainment.ca/wp-content/uploads/';
+  var B = 'https://continentalentertainment.ca/';
+  var T = B + 'tributes/';
+  var acts = [
+    ['ABBA Revisited', 'Tribute to ABBA', 'Tributes', '2026/07/tribute-to-abba.webp', 'center 30%', T + 'tribute-to-abba/'],
+    ['Draw the Line', 'Tribute to Aerosmith', 'Tributes', '2026/07/draw-the-line-aerosmith-tribute-2.webp', '45% center', T + 'tribute-to-aerosmith/'],
+    ['Voodoo Lounge', 'Tribute to the Rolling Stones', 'Tributes', '2026/07/voodoo-lounge-tribute-to-the-rolling-stones.webp', 'center', T + 'tribute-to-the-rolling-stones/'],
+    ['Simply Queen', 'Tribute to Queen', 'Tributes', '2026/07/simply-queen-a-tribute-to-queen.webp', 'center', T + 'tribute-to-queen/'],
+    ['The Beatle Band', 'Tribute to the Beatles', 'Tributes', '2026/07/the-beatle-band-tribute-to-the-beatles.webp', 'center', T + 'tribute-to-the-beatles/'],
+    ['Sandman', 'The only Metallica-sanctioned tribute', 'Tributes', '2026/07/tribute-to-metallica.webp', 'center', T + 'metallica/'],
+    ['Thunderstruck', 'Tribute to AC/DC, since 2001', 'Tributes', '2026/07/thunderstruck-tribute-to-ac-dc.webp', '48% center', T + 'tribute-to-acdc-canada/'],
+    ['Laurie Lynn', 'As Dolly Parton', 'Tributes', '2026/07/laurie-lynn-as-dolly-parton.webp', '30% center', T + 'tribute-to-dolly-parton/'],
+    ['Neon Nostalgic', 'The best of the 80s and 90s', 'Bands', '2026/07/neon-nostalgic.webp', 'center', B + 'top-40/neon-nostalgic/'],
+    ["Wednesday's Engine", 'Live at the CNE', 'Bands', '2025/11/wednesdays-engine-on-stage-at-the-cne.webp', '40% center', B + 'top-40/'],
+    ['The Silver Elvis', 'Peter Jarvis', 'Novelty', '2026/07/peter-jarvis-silver-elvis.webp', '20% center', B + 'magicians-novelty-acts/silver-elvis/'],
+    ['The Incredible Boris', 'Comedy hypnotist', 'Novelty', '2026/07/hypnotist-the-incredible-boris.webp', 'center 20%', B + 'magicians-novelty-acts/the-incredible-boris/']
+  ];
+  var grid = document.querySelector('.acts');
+  var filterBox = document.querySelector('#roster .filters');
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+  function renderActs(group) {
+    grid.innerHTML = acts.filter(function (a) { return group === 'All' || a[2] === group; }).map(function (a) {
+      return '<a class="act" href="' + a[5] + '"><span class="img"><img loading="lazy" src="' + U + a[3] + '" alt="' + esc(a[0] + ', ' + a[1]) + '" style="object-position:' + a[4] + '"></span>' +
+        '<span class="meta"><span><b>' + esc(a[0]) + '</b><span>' + esc(a[1]) + '</span></span><span class="gold" aria-hidden="true">→</span></span></a>';
+    }).join('');
+  }
+  function pills(box, labels, current, onPick) {
+    box.innerHTML = '';
+    labels.forEach(function (label, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'pill'; b.textContent = label;
+      b.setAttribute('aria-pressed', String(i === current));
+      b.onclick = function () {
+        box.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true'); onPick(i, label);
+      };
+      box.appendChild(b);
+    });
+  }
+  pills(filterBox, ['All', 'Tributes', 'Bands', 'Novelty'], 0, function (i, label) { renderActs(label); });
+  renderActs('All');
+
+  var events = [
+    ['Corporate event', 'corporate event', 'Mixer to dance floor.', 'Keep the networking easy early, then give people a reason to stay.',
+      [['Reception', 'Magician or illusionist', 'Close-up magic gets strangers talking at mixers and galas.'], ['Dinner', 'Jazz or lounge singer', 'Smooth music that lets people hear each other.'], ['After dinner', 'Top 40 band or DJ & MC', 'Dancing and sing-alongs, with an MC keeping the schedule on track.']]],
+    ['Wedding', 'wedding', 'Ceremony to last dance.', 'Different moments need different acts. Book one or all of them.',
+      [['Getting ready', 'Makeup artist', 'Beauty and glamour makeup for the wedding party.'], ['Ceremony & cocktails', 'Solo or acoustic act', 'Perfect for the ceremony and cocktail hour.'], ['Reception', 'Top 40 band or wedding DJ', 'Dancing and sing-alongs from first dance to last call.']]],
+    ['Festival', 'festival', 'Draw the crowd.', 'Names people recognise, plus programming that reflects your community.',
+      [['Headliner', 'Tribute band', 'The music of a beloved artist, without the big-name fee.'], ['Main stage', 'Original recording act', 'Original music for audiences who want something new.'], ['Cultural stage', 'Traditional music & dance', 'Cultural performers and contemporary acts.']]],
+    ['Private party', 'party', 'Make it a night.', 'Birthdays, anniversaries and reunions. Tell us the vibe and the room.',
+      [['Arrivals', 'Magician or comedian', 'Fun, quirky entertainment while guests settle in.'], ['Main event', 'Tribute act', 'Relive the classics, from ABBA to Queen.'], ['Late', 'Party DJ', 'Keeps the energy up until the lights come on.']]],
+    ['Venue', 'venue', 'A reason to come back.', 'Regular live acts that fill slow nights and pack the weekends.',
+      [['Weeknights', 'Jazz & lounge acts', 'Easy listening that suits dinner service.'], ['Fridays', 'Top 40 cover band', 'Current and popular songs for a wide crowd.'], ['Saturdays', 'Tribute bands', 'A cost-effective alternative to the original artist.']]]
+  ];
+  function renderEvent(i) {
+    var e = events[i];
+    document.getElementById('ev-headline').textContent = e[2];
+    document.getElementById('ev-note').textContent = e[3];
+    document.getElementById('ev-cta').textContent = 'Plan my ' + e[1];
+    document.getElementById('ev-slots').innerHTML = e[4].map(function (s) {
+      return '<li><span class="when">' + esc(s[0]) + '</span><span class="what"><b>' + esc(s[1]) + '</b><span>' + esc(s[2]) + '</span></span></li>';
+    }).join('');
+  }
+  pills(document.querySelector('.planner .tabs'), events.map(function (e) { return e[0]; }), 0, function (i) { renderEvent(i); });
+  renderEvent(0);
+
+  var cats = [
+    ['Tributes', 'Tribute bands, look-alikes, impersonators', 'tributes/'], ['Top 40 & variety', 'Cover bands and variety acts', 'top-40/'],
+    ['Recording acts', 'Recording artists, original music', 'recording-acts/'], ['DJs', 'Club, party, wedding and corporate', 'dj-services/'],
+    ['Novelty', 'Magicians, hypnotists, comedians, dance', 'magicians-novelty-acts/'], ['Jazz & easy listening', 'Smooth jazz, lounge singers, instrumentalists', 'jazz-artists/'],
+    ['Asian talent', 'Traditional, cultural dance, contemporary', 'asian-entertainment/'], ['Makeup artists', 'Beauty, glamour, theatrical', 'makeup/'], ['Models', 'Fashion, promotional, commercial', 'models/']
+  ];
+  document.getElementById('cats').innerHTML = cats.map(function (c) {
+    return '<a href="' + B + c[2] + '"><span><b>' + esc(c[0]) + '</b><span>' + esc(c[1]) + '</span></span><span class="arrow" aria-hidden="true">→</span></a>';
+  }).join('');
+
+  var faq = [
+    ['How far ahead should I book?', 'As early as you can. The best talent books fast, especially for weekends and peak season. Short notice? Call anyway: someone is often free.'],
+    ['What does live entertainment cost?', 'It depends on the act, the date and the production you need. Share your budget and you get options that fit, with transparent fees and a simple contract.'],
+    ['Will a band fit my venue?', 'Tell us about the room. Is there space for a full band? Are there volume limits? The act and the production are matched to the space.'],
+    ['Who handles the contract and the details?', 'Continental does. Once you choose an act, contracts, scheduling and communication are handled, with support before, during and after the event.'],
+    ['Can you produce the whole event?', 'Yes. Beyond booking talent, Continental can negotiate fees, help choose a venue, or produce the entire event from beginning to end.']
+  ];
+  var list = document.getElementById('faq-list');
+  list.innerHTML = faq.map(function (f, i) {
+    return '<div class="item"><button type="button" aria-expanded="' + (i === 0) + '" aria-controls="faq-' + i + '"><span>' + esc(f[0]) + '</span><span class="sign" aria-hidden="true">' + (i === 0 ? '−' : '+') + '</span></button>' +
+      '<p id="faq-' + i + '"' + (i === 0 ? '' : ' hidden') + '>' + esc(f[1]) + '</p></div>';
+  }).join('');
+  list.addEventListener('click', function (ev) {
+    var btn = ev.target.closest('button'); if (!btn) return;
+    var p = document.getElementById(btn.getAttribute('aria-controls'));
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    btn.querySelector('.sign').textContent = open ? '+' : '−';
+    p.hidden = open;
+  });
+})();
+</script>
+</body>
+</html>
