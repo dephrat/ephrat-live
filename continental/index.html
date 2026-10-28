@@ -241,15 +241,16 @@ header nav{flex:1 1 auto;justify-content:flex-end}
 </section>
 
 <div class="wrap check">
-  <form id="check" aria-label="Check a date" onsubmit="event.preventDefault();sendEnquiry(this)">
+  <form id="check" aria-label="Check a date" onsubmit="event.preventDefault();sendInquiry(this)">
     <div class="head"><strong style="font-size:19px">Check a date</strong><span style="font-size:14px;color:var(--mute)">We reply with acts that fit your budget.</span></div>
     <div class="field" style="flex:1 1 200px"><label for="ce-type">Event</label>
       <select id="ce-type"><option>Corporate event</option><option>Wedding</option><option>Festival</option><option>Private party</option><option>Venue booking</option></select></div>
-    <div class="field" style="flex:1 1 170px"><label for="ce-date">Date</label><input id="ce-date" type="date"></div>
-    <div class="field" style="flex:1 1 200px"><label for="ce-city">City or venue</label><input id="ce-city" type="text" placeholder="Niagara Falls"></div>
-    <div class="field" style="flex:1 1 120px"><label for="ce-guests">Guests</label><input id="ce-guests" type="number" placeholder="150"></div>
-    <button type="submit">Send enquiry</button>
-    <p id="check-msg" hidden style="flex:1 1 100%;margin:4px 0 0;font-size:14px;color:var(--gold)">Your email app should open with the enquiry filled in. If it doesn't, write to <a href="mailto:Howie@ContinentalEntertainment.ca">Howie@ContinentalEntertainment.ca</a> or call <a href="tel:+19053970878">(905) 397-0878</a>.</p>
+    <div class="field" style="flex:1 1 170px"><label for="ce-date">Date</label><input id="ce-date" type="date" required></div>
+    <div class="field" style="flex:1 1 180px"><label for="ce-city">City</label><input id="ce-city" type="text" list="ce-cities" placeholder="Niagara Falls" required minlength="2" maxlength="60" pattern="(?=.*[A-Za-zÀ-ÿ]).{2,}" title="Enter the city where the event is (at least 2 characters, including a letter)"><datalist id="ce-cities"><option value="St. Catharines"><option value="Niagara Falls"><option value="Niagara-on-the-Lake"><option value="Welland"><option value="Thorold"><option value="Fort Erie"><option value="Port Colborne"><option value="Grimsby"><option value="Lincoln"><option value="Pelham"><option value="Fonthill"><option value="Wainfleet"><option value="West Lincoln"><option value="Hamilton"><option value="Burlington"><option value="Oakville"><option value="Mississauga"><option value="Toronto"><option value="Brantford"><option value="Kitchener"><option value="Waterloo"><option value="Guelph"><option value="London"><option value="Buffalo"></datalist></div>
+    <div class="field" style="flex:1 1 200px"><label for="ce-venue">Venue <span style="text-transform:none;letter-spacing:0;font-weight:400">(optional)</span></label><input id="ce-venue" type="text" placeholder="Venue name or address" maxlength="120"></div>
+    <div class="field" style="flex:1 1 110px"><label for="ce-guests">Guests</label><input id="ce-guests" type="number" placeholder="150" min="1" max="5000" step="1" title="Between 1 and 5,000"></div>
+    <button type="submit">Send inquiry</button>
+    <p id="check-msg" hidden style="flex:1 1 100%;margin:4px 0 0;font-size:14px;color:var(--gold)">Your email app should open with the inquiry filled in. If it doesn't, write to <a href="mailto:Howie@ContinentalEntertainment.ca">Howie@ContinentalEntertainment.ca</a> or call <a href="tel:+19053970878">(905) 397-0878</a>.</p>
   </form>
 </div>
 
@@ -487,24 +488,30 @@ header nav{flex:1 1 auto;justify-content:flex-end}
     if (a) { a.target = '_blank'; a.rel = 'noopener'; }
   });
 })();
-// No form service: the enquiry opens in the visitor's email app, addressed to Howie.
+// The date picker can't go earlier than today.
+(function () {
+  var d = new Date(), pad = function (n) { return String(n).padStart(2, '0'); };
+  document.getElementById('ce-date').min = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+})();
+// No form service: the inquiry opens in the visitor's email app, addressed to Howie.
 // People without an email app (Gmail or Outlook in a browser) would see nothing
 // happen, so the message under the button offers webmail links and a copy button.
-function sendEnquiry(form) {
+function sendInquiry(form) {
   var v = function (id) { return document.getElementById(id).value.trim(); };
   var to = 'Howie@ContinentalEntertainment.ca';
-  var subject = 'Booking enquiry: ' + v('ce-type');
+  var subject = 'Booking inquiry: ' + v('ce-type');
   var body = ['Hi Howie,', '', "I'd like to book entertainment.", '',
-    'Event: ' + v('ce-type'), 'Date: ' + (v('ce-date') || 'not set yet'),
-    'City or venue: ' + (v('ce-city') || 'not set yet'), 'Guests: ' + (v('ce-guests') || 'not sure yet'), '', 'Thanks,'].join('\n');
+    'Event: ' + v('ce-type'), 'Date: ' + v('ce-date'),
+    'City: ' + v('ce-city'), 'Venue: ' + (v('ce-venue') || 'not decided yet'),
+    'Guests: ' + (v('ce-guests') || 'not sure yet'), '', 'Thanks,'].join('\n');
   var e = encodeURIComponent;
   var msg = document.getElementById('check-msg');
-  msg.innerHTML = 'Your email app should open with the enquiry filled in. No email app? ' +
+  msg.innerHTML = 'Your email app should open with the inquiry filled in. No email app? ' +
     '<a target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=' + e(to) + '&su=' + e(subject) + '&body=' + e(body) + '">Open in Gmail</a> · ' +
     '<a target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=' + e(to) + '&subject=' + e(subject) + '&body=' + e(body) + '">Open in Outlook</a> · ' +
-    '<a href="#" id="copy-enquiry">Copy the enquiry</a>, or call <a href="tel:+19053970878">(905) 397-0878</a>.';
+    '<a href="#" id="copy-inquiry">Copy the inquiry</a>, or call <a href="tel:+19053970878">(905) 397-0878</a>.';
   msg.hidden = false;
-  document.getElementById('copy-enquiry').onclick = function (ev) {
+  document.getElementById('copy-inquiry').onclick = function (ev) {
     ev.preventDefault();
     var text = 'To: ' + to + '\nSubject: ' + subject + '\n\n' + body;
     var done = function () { ev.target.textContent = 'Copied'; };
