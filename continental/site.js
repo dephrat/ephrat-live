@@ -4,6 +4,23 @@
 // Markup is C2's: .find > #find-q (combobox) + ul#find-results (listbox), and
 // a.video.embed[data-embed] thumbnails.
 (function () {
+  // --- Photos -------------------------------------------------------------
+  // Act photos load from continentalentertainment.ca. If one fails (their
+  // server is down, or blocks other sites), hide it so the card's own
+  // background shows instead of a broken-image icon. Images that already
+  // failed before this script ran are caught by the sweep below.
+  function hideBroken(img) {
+    img.style.visibility = 'hidden';
+    img.setAttribute('data-failed', '');
+  }
+  document.addEventListener('error', function (e) {
+    if (e.target.tagName === 'IMG') hideBroken(e.target);
+  }, true);
+  document.querySelectorAll('img').forEach(function (img) {
+    // Lazy images that haven't started loading can also report complete with no size.
+    if (img.loading !== 'lazy' && img.complete && img.getAttribute('src') && img.naturalWidth === 0) hideBroken(img);
+  });
+
   // --- Search -------------------------------------------------------------
   var index = null;
 
@@ -17,19 +34,27 @@
   }
 
   function norm(s) {
-    return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, ' ');
+    return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9 ]/g, ' ');
   }
 
-  // Every typed word must appear somewhere; names that start with the first word rank first.
+  // Every typed word must appear in the act's name, label or category. Only when
+  // nothing matches that way do descriptions count, so "abba" doesn't also list
+  // every act whose blurb happens to mention ABBA.
   function rank(acts, q) {
     var words = norm(q).split(/\s+/).filter(Boolean);
     if (!words.length) return [];
-    return acts.map(function (a) {
-      var name = norm(a.n), all = norm([a.n, a.k, a.c, a.t].join(' '));
-      if (!words.every(function (w) { return all.indexOf(w) >= 0; })) return null;
-      var at = name.indexOf(words[0]);
+    function hits(field) {
+      return acts.filter(function (a) {
+        var text = norm(field(a));
+        return words.every(function (w) { return text.indexOf(w) >= 0; });
+      });
+    }
+    var found = hits(function (a) { return [a.n, a.k, a.c].join(' '); });
+    if (!found.length) found = hits(function (a) { return [a.n, a.k, a.c, a.t].join(' '); });
+    return found.map(function (a) {
+      var at = norm(a.n).indexOf(words[0]);
       return { a: a, score: at === 0 ? 0 : (at > 0 ? 1 : 2) };
-    }).filter(Boolean).sort(function (x, y) {
+    }).sort(function (x, y) {
       return x.score - y.score || x.a.n.localeCompare(y.a.n);
     }).slice(0, 8).map(function (x) { return x.a; });
   }

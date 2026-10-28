@@ -277,8 +277,8 @@ header nav{flex:1 1 auto;justify-content:flex-end}
     <a href="https://www.youtube.com/@ContinentalEntertainment" style="color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px">All 250+ videos on YouTube →</a>
   </div>
   <div class="videos">
-    <a class="video" href="https://www.youtube.com/watch?v=FHIEMhmUSgY"><span class="img"><img src="https://img.youtube.com/vi/FHIEMhmUSgY/maxresdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Draw the Line</b><small>Tribute to Aerosmith · 18K views</small></span></a>
-    <a class="video" href="https://www.youtube.com/watch?v=q9ur-kv6r6E"><span class="img"><img src="https://img.youtube.com/vi/q9ur-kv6r6E/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>ABBA Revisited</b><small>Tribute to ABBA · 6K views</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=FHIEMhmUSgY"><span class="img"><img src="https://img.youtube.com/vi/FHIEMhmUSgY/maxresdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Draw the Line</b><small>Tribute to Aerosmith</small></span></a>
+    <a class="video" href="https://www.youtube.com/watch?v=q9ur-kv6r6E"><span class="img"><img src="https://img.youtube.com/vi/q9ur-kv6r6E/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>ABBA Revisited</b><small>Tribute to ABBA</small></span></a>
     <a class="video" href="https://www.youtube.com/watch?v=OszVrfHGGIk"><span class="img"><img src="https://img.youtube.com/vi/OszVrfHGGIk/hqdefault.jpg" alt="" loading="lazy" style="transform:scale(1.35)"><span class="play" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#060A1C"><path d="M8 5v14l11-7z"/></svg></span></span></span><span><b>Shania Twin</b><small>Tribute to Shania Twain</small></span></a>
   </div>
 </section>
@@ -487,15 +487,42 @@ header nav{flex:1 1 auto;justify-content:flex-end}
     if (a) { a.target = '_blank'; a.rel = 'noopener'; }
   });
 })();
-// No form service: the enquiry opens in the visitor's own email app, addressed to Howie.
+// No form service: the enquiry opens in the visitor's email app, addressed to Howie.
+// People without an email app (Gmail or Outlook in a browser) would see nothing
+// happen, so the message under the button offers webmail links and a copy button.
 function sendEnquiry(form) {
   var v = function (id) { return document.getElementById(id).value.trim(); };
-  var lines = ['Hi Howie,', '', "I'd like to book entertainment.", '',
+  var to = 'Howie@ContinentalEntertainment.ca';
+  var subject = 'Booking enquiry: ' + v('ce-type');
+  var body = ['Hi Howie,', '', "I'd like to book entertainment.", '',
     'Event: ' + v('ce-type'), 'Date: ' + (v('ce-date') || 'not set yet'),
-    'City or venue: ' + (v('ce-city') || 'not set yet'), 'Guests: ' + (v('ce-guests') || 'not sure yet'), '', 'Thanks,'];
-  location.href = 'mailto:Howie@ContinentalEntertainment.ca?subject=' + encodeURIComponent('Booking enquiry: ' + v('ce-type')) +
-    '&body=' + encodeURIComponent(lines.join('\n'));
-  document.getElementById('check-msg').hidden = false;
+    'City or venue: ' + (v('ce-city') || 'not set yet'), 'Guests: ' + (v('ce-guests') || 'not sure yet'), '', 'Thanks,'].join('\n');
+  var e = encodeURIComponent;
+  var msg = document.getElementById('check-msg');
+  msg.innerHTML = 'Your email app should open with the enquiry filled in. No email app? ' +
+    '<a target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=' + e(to) + '&su=' + e(subject) + '&body=' + e(body) + '">Open in Gmail</a> · ' +
+    '<a target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=' + e(to) + '&subject=' + e(subject) + '&body=' + e(body) + '">Open in Outlook</a> · ' +
+    '<a href="#" id="copy-enquiry">Copy the enquiry</a>, or call <a href="tel:+19053970878">(905) 397-0878</a>.';
+  msg.hidden = false;
+  document.getElementById('copy-enquiry').onclick = function (ev) {
+    ev.preventDefault();
+    var text = 'To: ' + to + '\nSubject: ' + subject + '\n\n' + body;
+    var done = function () { ev.target.textContent = 'Copied'; };
+    // If the browser blocks clipboard access, show the text selected so it can be copied by hand.
+    var showText = function () {
+      var box = document.createElement('textarea');
+      box.readOnly = true;
+      box.value = text;
+      box.rows = 8;
+      box.style.cssText = 'display:block;width:100%;margin-top:8px;font:inherit;color:inherit;background:transparent';
+      msg.appendChild(box);
+      box.select();
+      ev.target.textContent = 'Copy the text below';
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, showText);
+    else showText();
+  };
+  location.href = 'mailto:' + to + '?subject=' + e(subject) + '&body=' + e(body);
 }
 </script>
 <script>
