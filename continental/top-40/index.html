@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Top 40 &amp; variety · Continental Entertainment concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060A1C;--panel:#0D1433;--line:#1B2550;--line2:#2A366B;--ink:#F2F5FF;--soft:#C3CDF2;--mute:#8E9AC8;--gold:#6F8BFF;--cobalt:#2F4BE0;--cream:#EEF2FF;--brown:#2440C8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Schibsted Grotesk',system-ui,sans-serif}
+a{color:var(--gold)}
+img{display:block;max-width:100%}
+button,select,input{font:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+.kicker{margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.display{margin:0;font-family:'Sora',sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.03em;font-size:clamp(38px,5vw,72px)}
+.serif{color:var(--gold)}
+.gold{color:var(--gold)}
+.pill{min-height:44px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--line2)}
+.pill[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;text-decoration:none}
+.btn-light{background:var(--ink);color:var(--bg)}
+.btn-gold{background:var(--cobalt);color:#fff}
+.btn-ghost{color:var(--ink);border:1px solid rgba(242,245,255,.4);font-weight:600}
+.row-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:40px}
+
+/* concept banner */
+.concept{background:var(--cobalt);color:#fff;font-size:14px;font-weight:600;text-align:center;padding:10px 16px}
+.concept a{color:#fff}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:760px;display:flex;flex-direction:column}
+.hero>.wrap{width:100%}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,#060A1C 0%,rgba(6,10,28,.92) 30%,rgba(6,10,28,.35) 62%,rgba(6,10,28,.1) 100%)}
+.hero .fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(180deg,rgba(6,10,28,0),#060A1C)}
+header{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
+.logo{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;line-height:1}
+.logo{flex-direction:row !important;align-items:center;gap:12px}.logo svg{flex:0 0 auto;color:var(--gold)}.logo .lt{display:flex;flex-direction:column;line-height:1}.logo b{font-family:'Sora',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.01em}
+.logo small{font-size:11px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--mute);margin-top:5px}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 30px;font-size:15px;font-weight:500}
+nav a{color:var(--ink);text-decoration:none}
+nav .btn{min-height:44px;padding:0 20px}
+.hero-body{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:72px;padding-bottom:180px}
+.hero h1{margin:0 0 28px;max-width:760px;font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(44px,7.4vw,108px);line-height:.98;letter-spacing:-.035em}
+.hero p.lede{margin:0 0 36px;max-width:520px;font-size:19px;color:var(--soft)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.caption{position:absolute;z-index:1;right:28px;bottom:150px;margin:0;font-size:12px;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase}
+
+/* check a date */
+.check{position:relative;z-index:3;margin-top:-110px}
+.check form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8);display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.check .head{flex:1 1 100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;margin-bottom:4px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)}
+.field select,.field input{min-height:50px;border:1px solid var(--line2);border-radius:12px;background:#08102A;color:var(--ink);padding:0 14px;font-size:16px;color-scheme:dark;min-width:0}
+.check button{flex:1 1 180px;min-height:50px;border:0;border-radius:12px;background:var(--cobalt);color:#fff;font-weight:700;cursor:pointer}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px;padding-top:64px}
+.stats div{border-top:1px solid var(--line);padding-top:18px}
+.stats b{display:block;font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.03em;font-size:clamp(38px,4.2vw,58px);line-height:1}
+.stats span{display:block;margin-top:8px;font-size:15px;color:var(--mute)}
+
+/* roster */
+section.block{padding-top:120px;padding-bottom:100px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:36px 20px}
+.act{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:14px}
+.act .img{aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:var(--panel)}
+.act .img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.act:hover .img img{transform:scale(1.04)}
+.act .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.act .meta b{display:block;font-size:19px;line-height:1.25}
+.act .meta span{display:block;font-size:15px;color:var(--mute)}
+
+/* videos */
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.video{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:12px}
+.video .img{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--panel)}
+.video .img img{width:100%;height:100%;object-fit:cover}
+.video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(6,10,28,.25)}
+.video .play span{width:64px;height:64px;border-radius:50%;background:rgba(242,245,255,.95);display:flex;align-items:center;justify-content:center}
+.video b{font-size:18px}.video small{display:block;font-size:14px;color:var(--mute)}
+
+/* feature */
+.feature{display:flex;flex-wrap:wrap;border-radius:24px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.feature .pic{flex:999 1 560px;min-width:0;min-height:380px;position:relative}
+.feature .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature .txt{flex:1 1 360px;min-width:0;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.feature h2{margin:0;font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.03em;font-size:clamp(32px,3.6vw,48px);line-height:1.05}
+
+/* howie + reviews */
+.split{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.split .l{flex:1 1 360px;min-width:0}.split .r{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.rating{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.rating b{font-family:'Sora',sans-serif;font-weight:700;font-size:40px;line-height:1}
+.review{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
+.review blockquote{margin:0 0 18px;font-size:22px;font-weight:500;line-height:1.4}
+.review figcaption{font-size:14px;color:var(--mute)}.review figcaption b{color:var(--ink);font-weight:600}
+.concept-note{border:1px dashed var(--line2);border-radius:14px;padding:16px 18px;color:var(--mute);font-size:15px;max-width:420px}
+
+/* planner */
+.planner{position:relative;overflow:hidden;background:var(--cream);color:var(--bg)}.planner>.wrap{position:relative}.bigglobe{position:absolute;right:-260px;top:-300px;width:640px;height:640px;color:var(--cobalt);opacity:.2;pointer-events:none}.planner .serif{color:var(--cobalt)}
+.planner .kicker{color:var(--brown)}
+.planner .pill{border-color:#A6B3E3;color:var(--bg);min-height:48px;font-size:16px}
+.planner .pill[aria-pressed="true"]{background:var(--bg);color:var(--cream);border-color:var(--bg)}
+.plan{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;margin-top:40px}
+.plan .l{flex:1 1 300px;min-width:0}
+.plan .headline{margin:0 0 12px;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:-.02em;font-size:30px;line-height:1.15}
+.plan .note{margin:0 0 28px;color:#39446E;font-size:18px}
+.plan ol{flex:999 1 560px;min-width:0;list-style:none;margin:0;padding:0;border-top:1px solid #CCD5F5}
+.plan li{display:flex;flex-wrap:wrap;gap:6px 28px;padding:26px 0;border-bottom:1px solid #CCD5F5;align-items:baseline}
+.plan .when{flex:0 0 170px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brown)}
+.plan .what{flex:1 1 280px;min-width:0}
+.plan .what b{display:block;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:-.02em;font-size:22px;line-height:1.2}
+.plan .what span{display:block;color:#39446E;margin-top:4px}
+.btn-dark{background:var(--bg);color:var(--cream)}
+
+/* categories, steps, faq */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border-top:1px solid var(--line)}
+.cats a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.cats b{display:block;font-size:20px}.cats span{display:block;font-size:15px;color:var(--mute)}
+.arrow{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.steps li{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
+.steps .n{font-family:'Sora',sans-serif;font-weight:700;font-size:40px;line-height:1;color:var(--gold)}
+.steps h3{margin:26px 0 6px;font-size:20px}.steps p{margin:0;color:var(--mute);font-size:16px}
+.faq{border-top:1px solid var(--line)}
+.faq button{width:100%;min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:transparent;border:0;color:var(--ink);font-size:20px;font-weight:600;text-align:left;cursor:pointer;padding:18px 0}
+.faq .sign{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px}
+.faq .item{border-bottom:1px solid var(--line)}
+.faq p{margin:0;padding:0 56px 26px 0;color:var(--soft)}
+
+/* closing */
+.closing{position:relative;overflow:hidden}
+.closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.closing .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,28,.92) 0%,rgba(6,10,28,.7) 55%,rgba(6,10,28,.45) 100%)}
+.closing .wrap{position:relative;padding-top:130px;padding-bottom:110px;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.closing h2{margin:0;font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(46px,7.6vw,112px);line-height:1}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-top:36px;padding-bottom:36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;font-size:14px;color:var(--mute)}
+footer a{color:var(--soft)}
+
+@media (max-width:760px){
+  .hero .scrim{background:linear-gradient(180deg,rgba(6,10,28,.55) 0%,rgba(6,10,28,.88) 55%,#060A1C 100%)}
+  .caption{display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .acts{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}
+  .act .img{aspect-ratio:1/1}
+  .act .meta b{font-size:16px}.act .meta span{font-size:13px}
+  .filters,.tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+  .filters .pill,.tabs .pill{flex:0 0 auto;white-space:nowrap}
+  .feature .txt{padding:32px 24px}
+  .faq p{padding-right:0}
+}
+
+/* sub-pages */
+.sub header{position:relative}
+.crumbs{margin:0 0 18px;font-size:14px;color:var(--mute)}
+.crumbs a{color:var(--soft);text-decoration:none}.crumbs a:hover{color:var(--ink)}
+.crumbs span{margin:0 8px;color:var(--line2)}
+.pagehero{position:relative;overflow:hidden;min-height:520px;display:flex;flex-direction:column}
+.pagehero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.pagehero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,#060A1C 0%,rgba(6,10,28,.9) 35%,rgba(6,10,28,.4) 70%,rgba(6,10,28,.2) 100%)}
+.pagehero .fade{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(180deg,rgba(6,10,28,0),#060A1C)}
+.pagehero>.wrap{position:relative;z-index:1;width:100%}
+.pagehero .body{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:40px;padding-bottom:90px}
+.pagehero h1{margin:0 0 20px;font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(40px,6.4vw,92px);line-height:1}
+.pagehero .intro{margin:0 0 32px;max-width:560px;font-size:19px;color:var(--soft)}
+.actpage{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:40px;padding-bottom:80px}
+.actpage .l{flex:1 1 380px;min-width:0}
+.actpage .r{flex:999 1 520px;min-width:0}
+.actpage .photo{aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:var(--panel)}
+.actpage .photo img{width:100%;height:100%;object-fit:cover}
+.actpage h1{margin:0 0 18px;font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(40px,5.6vw,80px);line-height:1}
+.actpage .intro{margin:0 0 30px;font-size:18px;color:var(--soft)}
+.embed{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.facts>div{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
+.facts h2{margin:0 0 16px;font-family:'Sora',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em}
+.facts ul{margin:0;padding:0;list-style:none}
+.facts li{padding:12px 0;border-top:1px solid var(--line);color:var(--soft)}
+.facts li:first-child{border-top:0;padding-top:0}
+.backlink{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px}
+</style>
+</head>
+<body class="sub">
+
+<div class="concept">Redesign concept by <a href="https://ephrat.ai">ephrat.ai</a>. Not affiliated with Continental Entertainment. Photos and act details are theirs, shown for illustration only.</div>
+
+<section class="pagehero">
+  <img src="https://continentalentertainment.ca/wp-content/uploads/2026/07/neon-nostalgic.webp" alt="">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="fade" aria-hidden="true"></div>
+  <header class="wrap">
+    <a class="logo" href="/continental/"><svg width="34" height="34" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="20" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="10" y1="28" x2="90" y2="28"/><line x1="10" y1="72" x2="90" y2="72"/></svg><span class="lt"><b>Continental</b><small>Entertainment</small></span></a>
+    <nav aria-label="Main">
+      <a href="/continental/#roster">Roster</a>
+      <a href="/continental/#plan">Plan an event</a>
+      <a href="/continental/#how">How it works</a>
+      <a href="/continental/#faq">FAQ</a>
+      <a class="btn btn-gold" href="/continental/#check">Book an act</a>
+    </nav>
+  </header>
+  <div class="wrap body">
+    <p class="crumbs"><a href="/continental/">Home</a><span>/</span><a href="/continental/#roster">Roster</a><span>/</span>Top 40 &amp; variety</p>
+    <h1>Top 40 &amp; variety</h1>
+    <p class="intro">Bands that read a room and keep the dance floor full, with sets that run from the classics to this year&#x27;s hits.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="/continental/#check">Check a date</a>
+      <a class="btn btn-ghost" href="https://continentalentertainment.ca/top-40/">See this page on their current site</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap block" style="padding-top:60px">
+  <div class="row-head">
+    <h2 class="display">On the <span class="serif">roster.</span></h2>
+  </div>
+  <div class="acts">
+<a class="act" href="/continental/top-40/neon-nostalgic/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/neon-nostalgic.webp" alt="Neon Nostalgic"></span><span class="meta"><span><b>Neon Nostalgic</b><span>The best of the 80s and 90s</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="/continental/top-40/wednesdays-engine/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/11/wednesdays-engine-on-stage-at-the-cne.webp" alt="Wednesday&#x27;s Engine"></span><span class="meta"><span><b>Wednesday&#x27;s Engine</b><span>Pop, rock and dance band</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/2b1/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/2b1-rudy-mayes-ester-finocchiaro.webp" alt="2B1"></span><span class="meta"><span><b>2B1</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/7-day-weekend/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/7-day-weekend.webp" alt="7 Day Weekend"></span><span class="meta"><span><b>7 Day Weekend</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/ascension-groove/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/ascension-groove.webp" alt="Ascension Groove"></span><span class="meta"><span><b>Ascension Groove</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/audioworx/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/05/audioworx.webp" alt="AudioworX"></span><span class="meta"><span><b>AudioworX</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/avenue-inn/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/avenue-inn.webp" alt="Avenue Inn"></span><span class="meta"><span><b>Avenue Inn</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/back-swing/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/kingstons-back-swing-party-band.webp" alt="Back Swing"></span><span class="meta"><span><b>Back Swing</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/backstage-pass-band/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/backstage-pass-band.webp" alt="Backstage Pass Band"></span><span class="meta"><span><b>Backstage Pass Band</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/blush/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/blush.webp" alt="Blush"></span><span class="meta"><span><b>Blush</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/box-social/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/03/box-social.webp" alt="Box Social"></span><span class="meta"><span><b>Box Social</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/breakfree/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/09/breakfree.webp" alt="BreakFree"></span><span class="meta"><span><b>BreakFree</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/by-design/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/03/by-design-band.webp" alt="By Design"></span><span class="meta"><span><b>By Design</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/classic-crooners/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/04/top-40-classic-crooners.jpg" alt="Classic Crooners"></span><span class="meta"><span><b>Classic Crooners</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/cottage-brew/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/cottage-brew.webp" alt="Cottage Brew"></span><span class="meta"><span><b>Cottage Brew</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/dianne-ryder-band/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/dianne-ryder-band.webp" alt="Dianne Ryder Band"></span><span class="meta"><span><b>Dianne Ryder Band</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/emily-misura-2/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/violinist-emily-misura.webp" alt="Emily Misura"></span><span class="meta"><span><b>Emily Misura</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/evermile/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/evermile.webp" alt="Evermile"></span><span class="meta"><span><b>Evermile</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/exale/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/03/exale-band.webp" alt="Exale"></span><span class="meta"><span><b>Exale</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/flash-johnson/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/flash-johnson.webp" alt="Flash Johnson"></span><span class="meta"><span><b>Flash Johnson</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/freedom-train/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/03/freedom-train.webp" alt="Freedom Train"></span><span class="meta"><span><b>Freedom Train</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/hard-rock-hooligans/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/04/hard-rock-hooligans.jpg" alt="Hard Rock Hooligans"></span><span class="meta"><span><b>Hard Rock Hooligans</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/heart-soul/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2024/01/heart-and-soul.jpg" alt="Heart + Soul"></span><span class="meta"><span><b>Heart + Soul</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/jonesy/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/04/jonesy.jpg" alt="Jonesy"></span><span class="meta"><span><b>Jonesy</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/jr-hardy/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/jr-hardy.webp" alt="JR Hardy"></span><span class="meta"><span><b>JR Hardy</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/kenny-v/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/kenny-v.webp" alt="Kenny V."></span><span class="meta"><span><b>Kenny V.</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/kill-bill-the-band/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/kill-bill-the-band.webp" alt="KILL BILL the Band"></span><span class="meta"><span><b>KILL BILL the Band</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/kitchen-staff-band/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/the-kitchen-staff-band.webp" alt="Kitchen Staff Band"></span><span class="meta"><span><b>Kitchen Staff Band</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/lost-boys/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/06/lost-boys.jpg" alt="Lost Boys"></span><span class="meta"><span><b>Lost Boys</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/madmen/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/08/madmen.webp" alt="MadMen"></span><span class="meta"><span><b>MadMen</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/old-school-rewind/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/10/old-school-rewind.webp" alt="Old School Rewind"></span><span class="meta"><span><b>Old School Rewind</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/one-ugly-cowboy/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/one-ugly-cowboy.webp" alt="One Ugly Cowboy"></span><span class="meta"><span><b>One Ugly Cowboy</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/orangeman/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/orangeman.webp" alt="Orangeman"></span><span class="meta"><span><b>Orangeman</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/otis-wonder-and-the-hustle/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2024/09/tn_otis-wonder-and-the-hustle.webp" alt="Otis Wonder and the Hustle"></span><span class="meta"><span><b>Otis Wonder and the Hustle</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/pulse-x/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/pulse-x.webp" alt="Pulse X"></span><span class="meta"><span><b>Pulse X</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/red-line-radio/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/red-line-radio.webp" alt="Red Line Radio"></span><span class="meta"><span><b>Red Line Radio</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/revolver-and-friends/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2024/11/revolver-and-friends.webp" alt="Revolver and Friends"></span><span class="meta"><span><b>Revolver and Friends</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/rudy-and-saddle-up/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/10/rudy-and-saddle-up.webp" alt="Rudy and Saddle Up"></span><span class="meta"><span><b>Rudy and Saddle Up</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/runaway-dixie/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/10/tn_runaway-dixie-country-band.webp" alt="Runaway Dixie"></span><span class="meta"><span><b>Runaway Dixie</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/rusty/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/rusty-band-montreal.webp" alt="Rusty"></span><span class="meta"><span><b>Rusty</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/stone-house-road/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/stone-house-road.webp" alt="Stone House Road"></span><span class="meta"><span><b>Stone House Road</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/stone-the-radio/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/stone-the-radio.webp" alt="Stone The Radio"></span><span class="meta"><span><b>Stone The Radio</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/sugarboom/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2024/11/sugarboom.webp" alt="Sugarboom"></span><span class="meta"><span><b>Sugarboom</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/switchbeat/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/switchbeat.webp" alt="Switchbeat"></span><span class="meta"><span><b>Switchbeat</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-audio-saints/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2025/02/the-audio-saints.webp" alt="The Audio Saints"></span><span class="meta"><span><b>The Audio Saints</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-campfire-poets/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/the-campfire-poets.webp" alt="The Campfire Poets"></span><span class="meta"><span><b>The Campfire Poets</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-decades-band/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/the-decades-band.webp" alt="The Decades Band"></span><span class="meta"><span><b>The Decades Band</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-dirty-pioneers/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/04/the-dirty-pioneers.jpg" alt="The Dirty Pioneers"></span><span class="meta"><span><b>The Dirty Pioneers</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-doubts/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/the-doubts.webp" alt="The Doubts"></span><span class="meta"><span><b>The Doubts</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-keynotes/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2019/08/The-Keynotes.jpg" alt="The Keynotes"></span><span class="meta"><span><b>The Keynotes</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-madhatters/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/the-mad-hatters.webp" alt="The Madhatters"></span><span class="meta"><span><b>The Madhatters</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-sandra-good-band/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/the-sandra-good-band.webp" alt="The Sandra Good Band"></span><span class="meta"><span><b>The Sandra Good Band</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/the-sound-parade/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/04/top-40-the-sound-parade.jpg" alt="The Sound Parade"></span><span class="meta"><span><b>The Sound Parade</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/three-for-the-show/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2023/04/three-for-the-show.jpg" alt="Three For The Show"></span><span class="meta"><span><b>Three For The Show</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/three-tequila/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/three-tequila.webp" alt="Three Tequila"></span><span class="meta"><span><b>Three Tequila</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/thunder-boogie/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/thunder-boogie.webp" alt="Thunder Boogie"></span><span class="meta"><span><b>Thunder Boogie</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/tin-roof/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/tin-roof.webp" alt="Tin Roof"></span><span class="meta"><span><b>Tin Roof</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/trilogy/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/trilogy-top-40-band.webp" alt="Trilogy"></span><span class="meta"><span><b>Trilogy</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/uk-calling/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/uk-calling.webp" alt="UK Calling"></span><span class="meta"><span><b>UK Calling</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/unforgettable/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/08/unforgettable-4.webp" alt="Unforgettable"></span><span class="meta"><span><b>Unforgettable</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/voicemob/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/voicemob.webp" alt="VoiceMob"></span><span class="meta"><span><b>VoiceMob</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/wicked-truth/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2026/07/wicked-truth.webp" alt="Wicked Truth"></span><span class="meta"><span><b>Wicked Truth</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+<a class="act" href="https://continentalentertainment.ca/top-40/your-new-neighbors/"><span class="img"><img loading="lazy" src="https://continentalentertainment.ca/wp-content/uploads/2019/08/Your-New-Neighbours.jpg" alt="Your New Neighbors"></span><span class="meta"><span><b>Your New Neighbors</b><span>Top 40 &amp; variety</span></span><span class="gold" aria-hidden="true">→</span></span></a>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:40px;padding-bottom:120px">
+  <div class="feature" style="padding:48px 44px;flex-direction:column;align-items:flex-start;gap:18px">
+    <p class="kicker" style="margin:0">The best talent books fast, especially weekends</p>
+    <h2 style="margin:0">Check a date for <span class="serif">your event.</span></h2>
+    <a class="btn btn-gold" href="/continental/#check">Check a date</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><svg width="28" height="28" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="20" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="10" y1="28" x2="90" y2="28"/><line x1="10" y1="72" x2="90" y2="72"/></svg><span class="lt"><b style="font-size:16px">Continental</b><small style="font-size:10px">Entertainment</small></span></span>
+    <span style="display:flex;flex-wrap:wrap;gap:8px 24px">
+      <a href="https://continentalentertainment.ca/">Current website</a>
+      <a href="https://continentalentertainment.ca/the-star/">Toronto Star feature</a>
+      <a href="https://www.youtube.com/@ContinentalEntertainment">YouTube</a>
+    </span>
+    <span>Concept by ephrat.ai · not affiliated</span>
+  </div>
+</footer>
+
+<script>
+// External links open in a new tab, matching the home page.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a[href^="http"]');
+  if (a && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
+});
+</script>
+</body>
+</html>
