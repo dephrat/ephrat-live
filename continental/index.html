@@ -342,7 +342,7 @@ footer a{color:var(--soft)}
     ['Thunderstruck', 'Tribute to AC/DC, since 2001', 'Tributes', '2026/07/thunderstruck-tribute-to-ac-dc.webp', '48% center', T + 'tribute-to-acdc-canada/'],
     ['Laurie Lynn', 'As Dolly Parton', 'Tributes', '2026/07/laurie-lynn-as-dolly-parton.webp', '30% center', T + 'tribute-to-dolly-parton/'],
     ['Neon Nostalgic', 'The best of the 80s and 90s', 'Bands', '2026/07/neon-nostalgic.webp', 'center', B + 'top-40/neon-nostalgic/'],
-    ["Wednesday's Engine", 'Live at the CNE', 'Bands', '2025/11/wednesdays-engine-on-stage-at-the-cne.webp', '40% center', B + 'top-40/'],
+    ["Wednesday's Engine", 'Live at the CNE', 'Bands', '2025/11/wednesdays-engine-on-stage-at-the-cne.webp', '40% center', 'https://www.wednesdaysengine.com/'],
     ['The Silver Elvis', 'Peter Jarvis', 'Novelty', '2026/07/peter-jarvis-silver-elvis.webp', '20% center', B + 'magicians-novelty-acts/silver-elvis/'],
     ['The Incredible Boris', 'Comedy hypnotist', 'Novelty', '2026/07/hypnotist-the-incredible-boris.webp', 'center 20%', B + 'magicians-novelty-acts/the-incredible-boris/']
   ];
@@ -388,6 +388,7 @@ footer a{color:var(--soft)}
     document.getElementById('ev-headline').textContent = e[2];
     document.getElementById('ev-note').textContent = e[3];
     document.getElementById('ev-cta').textContent = 'Plan my ' + e[1];
+    document.getElementById('ce-type').selectedIndex = i;
     document.getElementById('ev-slots').innerHTML = e[4].map(function (s) {
       return '<li><span class="when">' + esc(s[0]) + '</span><span class="what"><b>' + esc(s[1]) + '</b><span>' + esc(s[2]) + '</span></span></li>';
     }).join('');
@@ -424,6 +425,10 @@ footer a{color:var(--soft)}
     btn.setAttribute('aria-expanded', String(!open));
     btn.querySelector('.sign').textContent = open ? '+' : '−';
     p.hidden = open;
+  });
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[href^="http"]');
+    if (a) { a.target = '_blank'; a.rel = 'noopener'; }
   });
 })();
 </script>
