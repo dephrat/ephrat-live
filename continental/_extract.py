@@ -1,6 +1,6 @@
 """Pull every act page's content and SEO data from a local snapshot of continentalentertainment.ca.
 
-Inputs (snapshot taken 2026-10-27, kept outside the repo):
+Inputs (snapshot taken 2026-10-27, kept in niagara-leads/continental/snapshot-2026-10-27):
   WP_PAGES   -- /wp-json/wp/v2/pages dump (rendered content of all pages)
   HTML_INDEX -- [url, file, status] for each page's full HTML (for <head> SEO tags)
 Output: _data/acts.json, one record per act page, keyed by their own URL path.
@@ -13,7 +13,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 WP_PAGES = Path('/Users/danielephrat/Documents/Code/niagara-leads/continental/raw/allpages.json')
-HTML_DIR = Path('/tmp/claude-501/ce_html')
+HTML_DIR = Path('/Users/danielephrat/Documents/Code/niagara-leads/continental/snapshot-2026-10-27/pages')
 CATEGORY_IDS = {22: 'tributes', 112: 'top-40', 11: 'recording-acts', 3664: 'dj-services',
                 43: 'magicians-novelty-acts', 25: 'jazz-artists', 30: 'makeup', 38: 'models'}
 
