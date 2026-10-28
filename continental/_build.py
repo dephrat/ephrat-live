@@ -46,6 +46,7 @@ content = load('content.json')
 cat_seo = load('category-seo.json')
 roster = load('roster.json')
 colors = load('photo-colors.json')
+vimeo = load('vimeo.json')
 cat_tpl = (HERE / '_templates/category.html').read_text()
 act_tpl = (HERE / '_templates/act.html').read_text()
 cats = {c['slug']: c for c in content['categories']}
@@ -112,6 +113,18 @@ def accent(a):
     return sw[int(hashlib.md5(a['path'].encode()).hexdigest(), 16) % len(sw)]
 
 
+def video_for(a):
+    """(watch url, embed url, thumbnail) for the act's first YouTube video, else its Vimeo one."""
+    if a['videos']:
+        v = a['videos'][0]
+        return (f'https://www.youtube.com/watch?v={v}', f'https://www.youtube-nocookie.com/embed/{v}',
+                f'https://i.ytimg.com/vi/{v}/hqdefault.jpg')
+    for v in a['vimeo']:
+        if vimeo.get(v):
+            return f'https://vimeo.com/{v}', f'https://player.vimeo.com/video/{v}', vimeo[v]['thumb']
+    return None
+
+
 def split_intro(paras):
     """First sentence or two of the bio, up to about 230 characters."""
     sentences = re.split(r'(?<=[.!?])\s+', paras[0] if paras else '')
@@ -168,7 +181,8 @@ for a in acts:
     credits = curated.get(a['path'], {}).get('credits', [])
 
     page = act_tpl
-    if not a['videos']:
+    video = video_for(a)
+    if not video:
         page = cut(page, 'video')
     if not a['songs']:
         page = cut(page, 'songs')
@@ -180,6 +194,11 @@ for a in acts:
         'name': esc(name), 'type': esc(kicker), 'intro': esc(intro),
         'bio': '\n'.join(f'<p>{esc(p)}</p>' for p in rest),
         'photo': esc(photo), 'video_id': esc(a['videos'][0] if a['videos'] else ''),
+        'video_url': esc(video[0] if video else ''), 'video_embed': esc(video[1] if video else ''),
+        'video_thumb': esc(video[2] if video else ''),
+        'category_list': '\n'.join(
+            f'<li><a href="{ROOT}{m["path"]}"' + (' aria-current="page"' if m is a else '') + f'>{esc(display(m)[0])}</a></li>'
+            for m in sorted(group, key=lambda m: display(m)[0].lower())),
         'songs': '\n'.join(f'<li>{esc(s)}</li>' for s in a['songs']),
         'credits': '\n'.join(f'<li>{esc(s)}</li>' for s in credits),
         'source_url': esc(a['source']), 'category_name': esc(c['name']),

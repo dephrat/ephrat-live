@@ -228,6 +228,52 @@ footer a{color:var(--soft)}
 .bio p.bio-src{margin-top:28px;font-size:14px;color:var(--mute)}
 .bio p.bio-src a{color:var(--gold)}
 .backlink{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px}
+
+/* header: roster menu + find an act */
+body header.wrap{z-index:5}
+header nav{flex:1 1 auto;justify-content:flex-end}
+.menu{position:relative}
+.menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary svg{transition:transform .15s}
+.menu[open] summary svg{transform:rotate(180deg)}
+.menu-panel{position:absolute;left:-14px;top:calc(100% + 6px);z-index:30;min-width:250px;padding:8px;background:var(--panel);border:1px solid var(--line2);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55);display:flex;flex-direction:column}
+.menu-panel a{padding:10px 14px;border-radius:10px;color:var(--ink);font-weight:500;text-decoration:none}
+.menu-panel a:hover,.menu-panel a:focus-visible{background:var(--line);outline:none}
+.menu-panel .menu-all{margin-top:6px;padding-top:14px;border-top:1px solid var(--line);border-radius:0 0 10px 10px;color:var(--gold);font-weight:600}
+.find{position:relative;flex:0 1 250px}
+.find>svg{position:absolute;left:16px;top:22px;transform:translateY(-50%);color:var(--mute);pointer-events:none}
+.find input{width:100%;min-height:44px;padding:0 16px 0 42px;border-radius:999px;border:1px solid var(--line2);background:rgba(6,10,28,.6);color:var(--ink);font-size:16px;-webkit-appearance:none;appearance:none}
+.find input::placeholder{color:var(--mute)}
+.find input:focus{outline:none;border-color:var(--gold);background:var(--bg)}
+.find-results{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:min(380px,calc(100vw - 32px));max-height:min(440px,62vh);overflow:auto;margin:0;padding:8px;list-style:none;background:var(--panel);border:1px solid var(--line2);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.find-results a{display:flex;align-items:center;gap:14px;padding:8px;border-radius:10px;color:var(--ink);text-decoration:none}
+.find-results img{flex:0 0 48px;width:48px;height:48px;border-radius:10px;object-fit:cover;background:var(--line)}
+.find-results span{min-width:0}
+.find-results b{display:block;font-size:15px;font-weight:600;line-height:1.3}
+.find-results small{display:block;font-size:13px;line-height:1.4;color:var(--mute)}
+.find-results a:hover,.find-results [aria-selected="true"] a{background:var(--line)}
+.find-empty{padding:12px 14px;color:var(--mute);font-size:15px}
+@media (max-width:1100px){.find{order:5;flex:1 1 100%}.find-results{left:0;right:auto;width:100%}}
+@media (max-width:760px){header nav{order:4;flex-basis:100%;justify-content:flex-start;gap:4px 22px}header>.btn{min-height:44px;padding:0 18px}.menu-panel{left:0}}
+@media (max-width:760px){header{gap:14px}.logo small{letter-spacing:2px}header>.btn{padding:0 16px;font-size:15px}header nav{font-size:15px;gap:4px 20px}}
+@media (max-width:420px){header nav a[href$="#how"]{display:none}}
+
+/* act body: content + category sidebar */
+.actbody{display:flex;flex-wrap:wrap;gap:56px 64px;align-items:flex-start;padding-bottom:80px}
+.actmain{flex:999 1 600px;min-width:0;display:flex;flex-direction:column;gap:80px}
+.actmain:empty{display:none}
+.catlist{flex:1 1 280px;min-width:0;position:sticky;top:24px}
+.catlist details{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.catlist summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:58px;padding:0 22px;font-family:'Sora',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em}
+.catlist summary::-webkit-details-marker{display:none}
+.catlist summary svg{flex:0 0 auto;color:var(--gold);transition:transform .15s}
+.catlist details[open] summary svg{transform:rotate(180deg)}
+.catlist ul{list-style:none;margin:0;padding:8px 10px 12px;max-height:calc(100vh - 150px);overflow:auto;border-top:1px solid var(--line)}
+.catlist a{display:block;padding:8px 12px;border-radius:10px;color:var(--soft);text-decoration:none;font-size:15px;line-height:1.35}
+.catlist a:hover{background:var(--line);color:var(--ink)}
+.catlist a[aria-current="page"]{background:var(--line);color:var(--ink);font-weight:600;box-shadow:inset 3px 0 0 var(--gold)}
+@media (max-width:1040px){.catlist{position:static;flex-basis:100%}.catlist ul{max-height:420px}}
 </style>
 </head>
 <body class="sub variant-split" style="--gold:#F764BA">
@@ -240,12 +286,30 @@ footer a{color:var(--soft)}
   <header class="wrap">
     <a class="logo" href="/continental/"><svg width="34" height="34" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="20" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="10" y1="28" x2="90" y2="28"/><line x1="10" y1="72" x2="90" y2="72"/></svg><span class="lt"><b>Continental</b><small>Entertainment</small></span></a>
     <nav aria-label="Main">
-      <a href="/continental/#roster">Roster</a>
+      <details class="menu"><summary>Roster <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></summary>
+        <div class="menu-panel">
+          <a href="/continental/tributes/">Tributes</a>
+          <a href="/continental/top-40/">Top 40 &amp; variety</a>
+          <a href="/continental/recording-acts/">Recording acts</a>
+          <a href="/continental/dj-services/">DJs</a>
+          <a href="/continental/magicians-novelty-acts/">Novelty</a>
+          <a href="/continental/jazz-artists/">Jazz &amp; easy listening</a>
+          <a href="/continental/asian-entertainment/">Asian talent</a>
+          <a href="/continental/makeup/">Makeup artists</a>
+          <a href="/continental/models/">Models</a>
+          <a class="menu-all" href="/continental/#roster">Full roster →</a>
+        </div>
+      </details>
       <a href="/continental/#plan">Plan an event</a>
       <a href="/continental/#how">How it works</a>
       <a href="/continental/#faq">FAQ</a>
-      <a class="btn btn-gold" href="/continental/#check">Book an act</a>
     </nav>
+    <div class="find" role="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="find-q" type="search" placeholder="Find an act" aria-label="Find an act" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="find-results" aria-expanded="false">
+      <ul id="find-results" class="find-results" role="listbox" hidden></ul>
+    </div>
+    <a class="btn btn-gold" href="/continental/#check">Book an act</a>
   </header>
   <svg class="globe" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".35" aria-hidden="true"><circle cx="50" cy="50" r="46"></circle><ellipse cx="50" cy="50" rx="10" ry="46"></ellipse><ellipse cx="50" cy="50" rx="24" ry="46"></ellipse><ellipse cx="50" cy="50" rx="36" ry="46"></ellipse><line x1="50" y1="4" x2="50" y2="96"></line><line x1="4" y1="50" x2="96" y2="50"></line><line x1="9.6" y1="28" x2="90.4" y2="28"></line><line x1="9.6" y1="72" x2="90.4" y2="72"></line><line x1="24" y1="12" x2="76" y2="12"></line><line x1="24" y1="88" x2="76" y2="88"></line></svg>
   <div class="wrap inner">
@@ -263,27 +327,45 @@ footer a{color:var(--soft)}
   </div>
 </section>
 
-<!--bio-->
-<section class="wrap" style="padding-bottom:80px">
-  <div class="bio">
-    <h2>About Amber Long</h2>
-<p>Supported by top-tier artists and blessed with a voice that soothes souls near and far, she has charmed audiences across countries such as Australia, the USA, the UK, the Netherlands, Greece, Spain, Qatar, Mexico, Argentina, Jamaica, and her throughout her homeland, Canada. She’s smashed through the glass ceiling with her music and collaborations, which have been signed to multiple prestigious labels.</p>
+<div class="wrap actbody">
+  <div class="actmain">
+  <!--bio-->
+  <section>
+    <div class="bio">
+      <h2>About Amber Long</h2>
+  <p>Supported by top-tier artists and blessed with a voice that soothes souls near and far, she has charmed audiences across countries such as Australia, the USA, the UK, the Netherlands, Greece, Spain, Qatar, Mexico, Argentina, Jamaica, and her throughout her homeland, Canada. She’s smashed through the glass ceiling with her music and collaborations, which have been signed to multiple prestigious labels.</p>
 <p>Amber’s passion for spinning is not limited just there; not only does she travel everywhere but also runs an independent label Modern Agenda – an independent label home to producers who are being championed for their work in Progressive House and Melodic Techno, primarily.</p>
 <p>Amber launched the LIA Series in 2021, a series of guest mixes highlighting up-and-coming female and female-representing artists from around the globe. Amber has also been hosting Frisky Radio’s Rogue Radio Show since 2017 and has been involved with The Canadian Juno Awards for many years now.</p>
 <p>With music coursing through every vein of hers, it’s easy to see why Amber believes in its power to heal us all.</p>
-    <p class="bio-src">From <a href="https://continentalentertainment.ca/dj-services/amber-long/">Amber Long's page</a> on continentalentertainment.ca.</p>
+      <p class="bio-src">From <a href="https://continentalentertainment.ca/dj-services/amber-long/">Amber Long's page</a> on continentalentertainment.ca.</p>
+    </div>
+  </section>
+  <!--/bio-->
+
+  
+
+  <section>
+    <div class="facts">
+      
+      
+    </div>
+  </section>
   </div>
-</section>
-<!--/bio-->
-
-
-
-<section class="wrap" style="padding-bottom:60px">
-  <div class="facts">
-    
-    
-  </div>
-</section>
+  <aside class="catlist" aria-label="All DJs">
+    <details><summary>All DJs <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></summary>
+      <ul>
+<li><a href="/continental/dj-services/access-entertainment/">Access Entertainment</a></li>
+<li><a href="/continental/dj-services/amber-long/" aria-current="page">Amber Long</a></li>
+<li><a href="/continental/dj-services/justgeorge/">DJ JustGeorge</a></li>
+<li><a href="/continental/dj-services/dj-recon/">DJ Recon</a></li>
+<li><a href="/continental/dj-services/dj-shawn-riley/">DJ Shawn Riley</a></li>
+<li><a href="/continental/dj-services/dj-trevor/">DJ Trevor</a></li>
+<li><a href="/continental/dj-services/dj-tripp-d/">DJ Tripp D</a></li>
+<li><a href="/continental/dj-services/dj-vibe/">DJ Vibe</a></li>
+      </ul>
+    </details>
+  </aside>
+</div>
 
 <section class="wrap" style="padding-top:40px;padding-bottom:40px">
   <div class="row-head" style="margin-bottom:28px">
@@ -327,5 +409,23 @@ document.addEventListener('click', function (e) {
   if (a && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
 });
 </script>
+<script>
+// Roster menu: close on outside click or Esc. Category sidebar: open on wide screens, scroll to the current act.
+document.addEventListener('click', function (e) {
+  document.querySelectorAll('details.menu[open]').forEach(function (d) { if (!d.contains(e.target)) d.open = false; });
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  document.querySelectorAll('details.menu[open]').forEach(function (d) { d.open = false; d.querySelector('summary').focus(); });
+});
+(function () {
+  var d = document.querySelector('.catlist details');
+  if (!d) return;
+  if (window.matchMedia('(min-width: 1041px)').matches) d.open = true;
+  var cur = d.querySelector('[aria-current="page"]'), ul = d.querySelector('ul');
+  if (d.open && cur) ul.scrollTop = cur.parentNode.offsetTop - ul.offsetTop - 80;
+})();
+</script>
+<script src="/continental/site.js" defer></script>
 </body>
 </html>
