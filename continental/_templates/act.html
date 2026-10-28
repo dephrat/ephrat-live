@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>{{name}} · Continental Entertainment concept</title>
+<title>{{seo_title}}</title>
+<meta name="description" content="{{meta_description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{seo_title}}">
+<meta property="og:description" content="{{meta_description}}">
+<meta property="og:image" content="{{og_image}}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{schema_jsonld}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -187,14 +195,42 @@ footer a{color:var(--soft)}
 .facts ul{margin:0;padding:0;list-style:none}
 .facts li{padding:12px 0;border-top:1px solid var(--line);color:var(--soft)}
 .facts li:first-child{border-top:0;padding-top:0}
+/* act hero variants: stage | split | portrait | type */
+.acthero{position:relative;overflow:hidden}
+.acthero .bg,.acthero .scrim,.acthero .globe{display:none}
+.acthero>header,.acthero>.inner{position:relative;z-index:1;width:100%}
+.acthero .inner{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:40px;padding-bottom:80px}
+.acthero .txt{flex:1 1 380px;min-width:0}
+.acthero .pic{flex:999 1 520px;min-width:0;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:var(--panel)}
+.acthero .pic img{width:100%;height:100%;object-fit:cover}
+.acthero h1{margin:0 0 18px;font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.035em;font-size:clamp(40px,5.6vw,80px);line-height:1}
+.acthero .intro{margin:0 0 30px;font-size:18px;color:var(--soft);max-width:560px}
+.variant-stage .acthero{min-height:680px;display:flex;flex-direction:column}
+.variant-stage .acthero .bg{display:block;position:absolute;inset:0}
+.variant-stage .acthero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.variant-stage .acthero .scrim{display:block;position:absolute;inset:0;background:linear-gradient(90deg,#060A1C 0%,rgba(6,10,28,.9) 32%,rgba(6,10,28,.35) 65%,rgba(6,10,28,.15) 100%),linear-gradient(180deg,rgba(6,10,28,0) 70%,#060A1C 100%)}
+.variant-stage .acthero .inner{flex:1;padding-top:80px;padding-bottom:110px}
+.variant-stage .acthero .pic{display:none}
+.variant-stage .acthero h1{font-size:clamp(44px,7vw,104px)}
+.variant-portrait .acthero .pic{flex:0 1 360px;aspect-ratio:4/5;max-width:420px}
+.variant-portrait .acthero .txt{flex:999 1 420px}
+.variant-portrait .acthero h1{font-size:clamp(44px,6.4vw,96px)}
+.variant-type .acthero .pic{display:none}
+.variant-type .acthero .globe{display:block;position:absolute;right:-140px;top:50%;transform:translateY(-50%);width:640px;height:640px;color:var(--gold);opacity:.28;pointer-events:none}
+.variant-type .acthero .inner{min-height:460px;padding-top:70px;padding-bottom:110px}
+.variant-type .acthero h1{font-size:clamp(52px,9vw,136px);max-width:900px}
+@media (max-width:760px){.variant-stage .acthero .scrim{background:linear-gradient(180deg,rgba(6,10,28,.5) 0%,rgba(6,10,28,.9) 55%,#060A1C 100%)}.variant-type .acthero .globe{width:420px;height:420px;right:-180px}}
 .backlink{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px}
 </style>
 </head>
-<body class="sub">
+<body class="sub variant-{{variant}}" style="--gold:{{accent}}">
 
 <div class="concept">Redesign concept by <a href="https://ephrat.ai">ephrat.ai</a>. Not affiliated with Continental Entertainment. Photos and act details are theirs, shown for illustration only.</div>
 
-<header class="wrap">
+<section class="acthero">
+  <div class="bg"><img src="{{photo}}" alt=""></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <header class="wrap">
     <a class="logo" href="/continental/"><svg width="34" height="34" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><circle cx="50" cy="50" r="46"/><ellipse cx="50" cy="50" rx="20" ry="46"/><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="10" y1="28" x2="90" y2="28"/><line x1="10" y1="72" x2="90" y2="72"/></svg><span class="lt"><b>Continental</b><small>Entertainment</small></span></a>
     <nav aria-label="Main">
       <a href="/continental/#roster">Roster</a>
@@ -204,19 +240,20 @@ footer a{color:var(--soft)}
       <a class="btn btn-gold" href="/continental/#check">Book an act</a>
     </nav>
   </header>
-
-<section class="wrap actpage">
-  <div class="l">
-    <p class="crumbs"><a href="/continental/">Home</a><span>/</span><a href="{{category_url}}">{{category_name}}</a><span>/</span>{{name}}</p>
-    <p class="kicker">{{type}}</p>
-    <h1>{{name}}</h1>
-    <p class="intro">{{intro}}</p>
-    <div class="ctas">
-      <a class="btn btn-gold" href="/continental/#check">Check availability</a>
-      <a class="btn btn-ghost" href="{{source_url}}">Their current page</a>
+  <svg class="globe" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".35" aria-hidden="true"><circle cx="50" cy="50" r="46"></circle><ellipse cx="50" cy="50" rx="10" ry="46"></ellipse><ellipse cx="50" cy="50" rx="24" ry="46"></ellipse><ellipse cx="50" cy="50" rx="36" ry="46"></ellipse><line x1="50" y1="4" x2="50" y2="96"></line><line x1="4" y1="50" x2="96" y2="50"></line><line x1="9.6" y1="28" x2="90.4" y2="28"></line><line x1="9.6" y1="72" x2="90.4" y2="72"></line><line x1="24" y1="12" x2="76" y2="12"></line><line x1="24" y1="88" x2="76" y2="88"></line></svg>
+  <div class="wrap inner">
+    <div class="txt">
+      <p class="crumbs"><a href="/continental/">Home</a><span>/</span><a href="{{category_url}}">{{category_name}}</a><span>/</span>{{name}}</p>
+      <p class="kicker">{{type}}</p>
+      <h1>{{name}}</h1>
+      <p class="intro">{{intro}}</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="/continental/#check">Check availability</a>
+        <a class="btn btn-ghost" href="{{source_url}}">Their current page</a>
+      </div>
     </div>
+    <div class="pic"><img src="{{photo}}" alt="{{name}}, {{type}}"></div>
   </div>
-  <div class="r"><div class="photo"><img src="{{photo}}" alt="{{name}}, {{type}}"></div></div>
 </section>
 
 <!--video-->
@@ -235,7 +272,16 @@ footer a{color:var(--soft)}
 {{credits}}
     </ul></div><!--/credits-->
   </div>
-  <p style="margin:36px 0 0"><a class="backlink" href="{{category_url}}">← More {{category_name}}</a></p>
+</section>
+
+<section class="wrap" style="padding-top:40px;padding-bottom:40px">
+  <div class="row-head" style="margin-bottom:28px">
+    <h2 class="display" style="font-size:clamp(32px,3.6vw,48px)">More like <span class="serif">this.</span></h2>
+    <a class="backlink" href="{{category_url}}">All {{category_name}} →</a>
+  </div>
+  <div class="acts">
+{{more_grid}}
+  </div>
 </section>
 
 <section class="wrap" style="padding-top:40px;padding-bottom:120px">
