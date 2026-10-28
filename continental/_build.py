@@ -11,6 +11,7 @@ the canonical pointing at their real page. Inputs, all in _data/:
 Run: python3 continental/_build.py
 """
 import colorsys
+import difflib
 import hashlib
 import html
 import json
@@ -141,7 +142,8 @@ def display(a):
     c = curated.get(a['path'])
     if c:
         return c['name'], c['type']
-    same = a['name'].strip().lower() == a['page_title'].strip().lower()
+    # A caption that only repeats the title (or misspells it) adds nothing; show the category instead.
+    same = difflib.SequenceMatcher(None, a['name'].strip().lower(), a['page_title'].strip().lower()).ratio() > 0.85
     return a['page_title'], cats[a['category']]['name'] if same else a['name']
 
 
@@ -216,4 +218,11 @@ for a in content['acts']:
     if old != new:
         written.append(write(old, redirect_page(new)))
 
-print(f'{len(written)} pages written')
+# Search index for the site-wide "Find an act" box: one short record per act.
+index = [{'n': display(a)[0], 'k': display(a)[1], 'c': cats[a['category']]['name'],
+          'u': ROOT + a['path'], 'p': photo_for(a)[0],
+          't': ' '.join([a['page_title'], a['name'], a['seo']['description']])}
+         for a in acts]
+(HERE / 'search.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':')))
+
+print(f'{len(written)} pages written, {len(index)} acts in search.json')

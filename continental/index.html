@@ -193,15 +193,15 @@ footer a{color:var(--soft)}
 </section>
 
 <div class="wrap check">
-  <form id="check" aria-label="Check a date" onsubmit="event.preventDefault();document.getElementById('check-msg').hidden=false">
+  <form id="check" aria-label="Check a date" onsubmit="event.preventDefault();sendEnquiry(this)">
     <div class="head"><strong style="font-size:19px">Check a date</strong><span style="font-size:14px;color:var(--mute)">We reply with acts that fit your budget.</span></div>
     <div class="field" style="flex:1 1 200px"><label for="ce-type">Event</label>
       <select id="ce-type"><option>Corporate event</option><option>Wedding</option><option>Festival</option><option>Private party</option><option>Venue booking</option></select></div>
     <div class="field" style="flex:1 1 170px"><label for="ce-date">Date</label><input id="ce-date" type="date"></div>
     <div class="field" style="flex:1 1 200px"><label for="ce-city">City or venue</label><input id="ce-city" type="text" placeholder="Niagara Falls"></div>
     <div class="field" style="flex:1 1 120px"><label for="ce-guests">Guests</label><input id="ce-guests" type="number" placeholder="150"></div>
-    <button type="submit">Find my act</button>
-    <p id="check-msg" hidden style="flex:1 1 100%;margin:4px 0 0;font-size:14px;color:var(--gold)">This is a design concept, so the form doesn't send anything.</p>
+    <button type="submit">Send enquiry</button>
+    <p id="check-msg" hidden style="flex:1 1 100%;margin:4px 0 0;font-size:14px;color:var(--gold)">Your email app should open with the enquiry filled in. If it doesn't, write to <a href="mailto:Howie@ContinentalEntertainment.ca">Howie@ContinentalEntertainment.ca</a> or call <a href="tel:+19053970878">(905) 397-0878</a>.</p>
   </form>
 </div>
 
@@ -329,6 +329,7 @@ footer a{color:var(--soft)}
       <a href="https://continentalentertainment.ca/">Current website</a>
       <a href="https://continentalentertainment.ca/the-star/">Toronto Star feature</a>
       <a href="https://www.youtube.com/@ContinentalEntertainment">YouTube</a>
+      <a href="https://www.facebook.com/ContinentalEntertainment/">Facebook</a>
     </span>
     <span>Concept by ephrat.ai · not affiliated</span>
   </div>
@@ -438,6 +439,16 @@ footer a{color:var(--soft)}
     if (a) { a.target = '_blank'; a.rel = 'noopener'; }
   });
 })();
+// No form service: the enquiry opens in the visitor's own email app, addressed to Howie.
+function sendEnquiry(form) {
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  var lines = ['Hi Howie,', '', "I'd like to book entertainment.", '',
+    'Event: ' + v('ce-type'), 'Date: ' + (v('ce-date') || 'not set yet'),
+    'City or venue: ' + (v('ce-city') || 'not set yet'), 'Guests: ' + (v('ce-guests') || 'not sure yet'), '', 'Thanks,'];
+  location.href = 'mailto:Howie@ContinentalEntertainment.ca?subject=' + encodeURIComponent('Booking enquiry: ' + v('ce-type')) +
+    '&body=' + encodeURIComponent(lines.join('\n'));
+  document.getElementById('check-msg').hidden = false;
+}
 </script>
 </body>
 </html>
